@@ -1,0 +1,36 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "config.gradle"
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        //hotfix
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.2'
+        //To use Butter Knife in a library, add the plugin to your buildscript:
+        //classpath 'com.jakewharton:butterknife-gradle-plugin:10.0.0'
+        //bugly
+        classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
+        // Sophix 添加emas-services插件
+        classpath 'com.aliyun.ams:emas-services:1.0.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+        //Sophix
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

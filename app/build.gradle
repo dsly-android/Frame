@@ -1,0 +1,179 @@
+apply plugin: 'com.android.application'
+//To use Butter Knife in a library, add the plugin to your buildscript:
+//apply plugin: 'com.jakewharton.butterknife'
+//bugly
+apply plugin: 'bugly'
+bugly {
+    appId = '38552d428b' // 注册时分配的App ID
+    appKey = '2b18d6cb-0974-46a6-af29-c68960fe604e' // 注册时分配的App Key
+}
+//Sophix
+apply plugin: 'com.aliyun.ams.emas-services'
+android {
+    signingConfigs {
+        frame {
+            keyAlias 'frame'
+            keyPassword '123456'
+            storeFile file('/Users/chenzhipeng/移动硬盘/android/框架/Frame/frame.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    defaultConfig {
+        applicationId "com.htxtdshopping.htxtd.frame"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.frame
+        //方法数超过65536时要加这行
+        multiDexEnabled true
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a', 'x86'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true    //混淆
+            shrinkResources true  //资源文件压缩
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //子module中通过这个自动寻找该module下我们指定的混淆文件对代码进行混淆，
+            // 是否进行混淆是通过主module的minifyEnabled决定的
+//            consumerProguardFiles 'proguard-rules.pro'
+            signingConfig signingConfigs.frame
+        }
+        debug {
+            minifyEnabled true    //混淆
+            shrinkResources true  //资源文件压缩
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.frame
+        }
+    }
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    productFlavors {
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        jumboMode = true
+        preDexLibraries = false
+        additionalParameters = [
+                '--multi-dex',//多分包
+                '--set-max-idx-number=60000'//每个包内方法数上限
+        ]
+    }
+    //自定义打包时apk名称
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def fileName = "Frame-${variant.versionName}-${variant.buildType.name}.apk"
+//            def fileName = "Frame-${variant.productFlavors[0].name}-${variant.versionName}-${variant.buildType.name}.apk"
+            def outFile = output.outputFile
+            if (outFile != null && outFile.name.endsWith('.apk')) {
+                outputFileName = fileName
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    //implementation修饰的只能在当前module中引用,依赖module中改为api则主module中也可引用jar包
+
+    //design
+    implementation 'com.google.android.material:material:1.1.0-alpha02'
+
+    //multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    //okgo
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.lzy.net:okrx2:2.0.2'
+    implementation 'com.lzy.net:okserver:2.0.5'
+
+    //fastjson
+    implementation 'com.alibaba:fastjson:1.1.71.android'
+
+    //AndroidEventBus
+    implementation project(path: ':androideventbus')
+
+    //BaseRecyclerViewAdapterHelper
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.49-androidx'
+
+    //LitePal
+    implementation 'org.litepal.android:core:2.0.0'
+
+    //leakcanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-2'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+    //RxLifecycle
+    implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    //AndroidAutoSize
+    implementation 'me.jessyan:autosize:1.1.2'
+
+    //AndroidUtilCode
+    implementation 'com.blankj:utilcodex:1.25.2'
+
+    //SmartRefreshLayout
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-15'
+    //没有使用特殊Header，可以不加这行
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-15'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //PermissionsDispatcher
+    implementation 'com.github.hotchemi:permissionsdispatcher:4.1.0'
+    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:4.1.0"
+
+    //zxing
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'com.google.zxing:android-core:3.3.0'
+
+    //flexbox-layout
+    implementation 'com.google.android:flexbox:1.1.0'
+
+    //bugly
+    implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+
+    //oss
+    implementation 'com.aliyun.dpa:oss-android-sdk:+'
+
+    //Sophix
+    implementation 'com.aliyun.ams:alicloud-android-hotfix:3.2.8'
+
+    //banner
+    implementation project(path: ':banner')
+
+    //GSYVideoPlayer
+    implementation 'com.shuyu:GSYVideoPlayer:7.0.2'
+
+    //dagger
+    implementation 'com.google.dagger:dagger:2.24'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
+    implementation 'com.google.dagger:dagger-android:2.24'
+    implementation('com.google.dagger:dagger-android-support:2.24') {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
+}
+repositories {
+    mavenCentral()
+}

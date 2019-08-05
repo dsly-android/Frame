@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.four.activity.CommonViewActivity">
+
+    <com.htxtdshopping.htxtd.frame.view.SwitchButton
+        android:id="@+id/sb_test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20pt"
+        android:layout_marginTop="20pt"
+        android:checked="true"
+        android:textColor="@android:color/white"
+        android:textSize="30pt"
+        app:kswBackColor="@color/bg_switch_btn"
+        app:kswFadeBack="true"
+        app:kswTextOff="OFF"
+        app:kswTextOn="ON"
+        app:kswThumbColor="@android:color/white"
+        app:kswThumbHeight="60pt"
+        app:kswThumbMargin="2pt"
+        app:kswThumbRadius="30pt"
+        app:kswThumbRangeRatio="3"
+        app:kswThumbWidth="60pt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.htxtdshopping.htxtd.frame.view.SwitchButton
+        android:id="@+id/sb_test2"
+        android:layout_width="200pt"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20pt"
+        android:checked="true"
+        android:enabled="false"
+        android:textColor="@android:color/white"
+        android:textSize="30pt"
+        app:kswBackColor="@color/bg_switch_btn"
+        app:kswFadeBack="true"
+        app:kswTextOff="OFF"
+        app:kswTextOn="ON"
+        app:kswThumbColor="@android:color/white"
+        app:kswThumbHeight="60pt"
+        app:kswThumbMargin="1pt"
+        app:kswThumbRangeRatio="3.3"
+        app:layout_constraintBottom_toBottomOf="@id/sb_test1"
+        app:layout_constraintLeft_toRightOf="@id/sb_test1"/>
+
+    <com.htxtdshopping.htxtd.frame.view.MsgNumView
+        android:id="@+id/mnv_unread_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40pt"
+        android:layout_marginTop="30pt"
+        android:textColor="@android:color/white"
+        android:textSize="26pt"
+        app:layout_constraintLeft_toRightOf="@id/sb_test2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:mnv_number="9"/>
+
+    <com.htxtdshopping.htxtd.frame.view.IndicatorView
+        android:id="@+id/iv_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40pt"
+        android:layout_marginTop="30pt"
+        app:iv_pageCount="5"
+        app:iv_selectPosition="2"
+        app:layout_constraintLeft_toRightOf="@id/mnv_unread_num"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="100pt"
+        android:gravity="center"
+        android:text="哈啊哈"
+        android:textColor="@android:color/black"
+        android:textSize="30pt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sb_test1"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
