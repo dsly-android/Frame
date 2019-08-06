@@ -8,7 +8,6 @@ import com.htxtdshopping.htxtd.frame.bean.NewsVideoBean;
 import com.htxtdshopping.htxtd.frame.network.ObserverResult;
 import com.htxtdshopping.htxtd.frame.ui.first.view.IRefreshAndLoadMoreView;
 import com.htxtdshopping.htxtd.frame.utils.RxLifecycleUtils;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +29,6 @@ public class RefreshAndLoadMorePresenter extends BasePresenter<IRefreshAndLoadMo
     @Inject
     public RefreshAndLoadMorePresenter() {
         super();
-    }
-
-    public void showToast(){
-        ToastUtils.showLong("haha");
     }
 
     public void loadData(boolean isRefresh) {

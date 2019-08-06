@@ -81,6 +81,13 @@
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Material Design"/>
+
+            <Button
+                android:id="@+id/btn_version_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="版本更新"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -41,28 +41,6 @@ public class UpgradeActivity extends BaseActivity {
         return R.layout.activity_upgrade;
     }
 
-    public void updateBtn(DownloadTask task) {
-        /*根据下载任务状态设置按钮*/
-        switch (task.getStatus()) {
-            case DownloadTask.INIT:
-            case DownloadTask.DELETED:
-            case DownloadTask.FAILED:
-                mBtnStart.setText("开始下载");
-                break;
-            case DownloadTask.COMPLETE:
-                mBtnStart.setText("安装");
-                break;
-            case DownloadTask.DOWNLOADING:
-                mBtnStart.setText("暂停");
-                break;
-            case DownloadTask.PAUSED:
-                mBtnStart.setText("继续下载");
-                break;
-            default:
-                break;
-        }
-    }
-
     @Override
     public void initView(Bundle savedInstanceState) {
         BarUtils.setStatusBarVisibility(this, false);
@@ -115,6 +93,28 @@ public class UpgradeActivity extends BaseActivity {
                 DownloadTask task = Beta.startDownload();
                 updateBtn(task);
                 finish();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void updateBtn(DownloadTask task) {
+        /*根据下载任务状态设置按钮*/
+        switch (task.getStatus()) {
+            case DownloadTask.INIT:
+            case DownloadTask.DELETED:
+            case DownloadTask.FAILED:
+                mBtnStart.setText("开始下载");
+                break;
+            case DownloadTask.COMPLETE:
+                mBtnStart.setText("安装");
+                break;
+            case DownloadTask.DOWNLOADING:
+                mBtnStart.setText("暂停");
+                break;
+            case DownloadTask.PAUSED:
+                mBtnStart.setText("继续下载");
                 break;
             default:
                 break;
