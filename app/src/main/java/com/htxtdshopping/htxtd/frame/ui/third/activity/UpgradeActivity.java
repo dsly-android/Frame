@@ -3,16 +3,28 @@ package com.htxtdshopping.htxtd.frame.ui.third.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.htxtdshopping.htxtd.frame.R;
+import com.htxtdshopping.htxtd.frame.base.AppContext;
 import com.htxtdshopping.htxtd.frame.base.BaseActivity;
-import com.tencent.bugly.beta.Beta;
-import com.tencent.bugly.beta.download.DownloadListener;
-import com.tencent.bugly.beta.download.DownloadTask;
+import com.htxtdshopping.htxtd.frame.constant.Constants;
+import com.liulishuo.okdownload.DownloadTask;
+import com.liulishuo.okdownload.StatusUtil;
+import com.liulishuo.okdownload.core.breakpoint.BreakpointInfo;
+import com.liulishuo.okdownload.core.cause.EndCause;
+import com.liulishuo.okdownload.core.cause.ResumeFailedCause;
+import com.liulishuo.okdownload.core.listener.DownloadListener1;
+import com.liulishuo.okdownload.core.listener.assist.Listener1Assist;
 
+import java.io.File;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -34,13 +46,24 @@ public class UpgradeActivity extends BaseActivity {
     TextView mTvVersion;
     @BindView(R.id.tv_content)
     TextView mTvContent;
+    @BindView(R.id.btn_cancel)
+    Button mBtnCancel;
     @BindView(R.id.btn_start)
     Button mBtnStart;
+    @BindView(R.id.btn_install)
+    Button mBtnInstall;
+    @BindView(R.id.pb_progress)
+    ProgressBar mPbProgress;
+    @BindView(R.id.ll_btn)
+    LinearLayout mLlBtn;
     private int mVersionCode;
     private String mVersionName;
     private String mApkUrl;
     private boolean mIsForce;
     private String mDescription;
+
+    private DownloadTask mTask;
+    private DownloadListener1 mListener;
 
     @Override
     public int getLayoutId() {
@@ -61,30 +84,58 @@ public class UpgradeActivity extends BaseActivity {
         mTvTitle.setText(mTvTitle.getText().toString() + mVersionCode);
         mTvVersion.setText(mTvVersion.getText().toString() + mVersionName);
         mTvContent.setText(mDescription);
+        if (mIsForce) {
+            mBtnCancel.setVisibility(View.GONE);
+            setFinishOnTouchOutside(false);
+        } else {
+            mBtnCancel.setVisibility(View.VISIBLE);
+            setFinishOnTouchOutside(true);
+        }
+
+        String apkUrl = "https://c9dec4e5c25870b8d86ff783ba4e7d2a.dd.cdntips.com/imtt.dd.qq.com/16891/apk/9F7457E13763356C44B14D7DF226044B.apk?mkey=5d4b8b8b751e129b&f=0c58&fsname=com.ss.android.article.news_7.3.6_736.apk&csr=1bbd&cip=117.30.52.110&proto=https";
+        mTask = new DownloadTask.Builder(apkUrl, new File(Constants.PATH_EXTERNAL_CACHE_DOWNLOAD))
+                .setFilename("今日头条.apk")
+                // the minimal interval millisecond for callback progress
+                .setMinIntervalMillisCallbackProcess(100)
+                .build();
 
         /*获取下载任务，初始化界面信息*/
-        updateBtn(Beta.getStrategyTask());
+        initStatus();
     }
 
     @Override
     public void initEvent() {
         /*注册下载监听，监听下载事件*/
-        Beta.registerDownloadListener(new DownloadListener() {
+        mListener = new DownloadListener1() {
+
             @Override
-            public void onReceive(DownloadTask task) {
-                updateBtn(task);
+            public void taskStart(@NonNull DownloadTask task, @NonNull Listener1Assist.Listener1Model model) {
+                mBtnCancel.setVisibility(View.GONE);
+                mBtnStart.setVisibility(View.GONE);
+                mBtnInstall.setVisibility(View.GONE);
+                mPbProgress.setVisibility(View.VISIBLE);
             }
 
             @Override
-            public void onCompleted(DownloadTask task) {
-                updateBtn(task);
+            public void retry(@NonNull DownloadTask task, @NonNull ResumeFailedCause cause) {
+
             }
 
             @Override
-            public void onFailed(DownloadTask task, int code, String extMsg) {
-                updateBtn(task);
+            public void connected(@NonNull DownloadTask task, int blockCount, long currentOffset, long totalLength) {
+
             }
-        });
+
+            @Override
+            public void progress(@NonNull DownloadTask task, long currentOffset, long totalLength) {
+                calcProgressToView(currentOffset, totalLength);
+            }
+
+            @Override
+            public void taskEnd(@NonNull DownloadTask task, @NonNull EndCause cause, @Nullable Exception realCause, @NonNull Listener1Assist.Listener1Model model) {
+                initStatus();
+            }
+        };
     }
 
     @Override
@@ -92,42 +143,59 @@ public class UpgradeActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_cancel, R.id.btn_start})
+    private void initStatus() {
+        StatusUtil.Status status = StatusUtil.getStatus(mTask);
+        if (status == StatusUtil.Status.COMPLETED) {
+            mBtnStart.setVisibility(View.GONE);
+            mBtnInstall.setVisibility(View.VISIBLE);
+            mPbProgress.setVisibility(View.GONE);
+            mPbProgress.setProgress(mPbProgress.getMax());
+            if (mIsForce){
+                mBtnCancel.setVisibility(View.GONE);
+            }else{
+                mBtnCancel.setVisibility(View.VISIBLE);
+            }
+        }
+        BreakpointInfo info = StatusUtil.getCurrentInfo(mTask);
+        if (info != null) {
+            calcProgressToView(info.getTotalOffset(), info.getTotalLength());
+        }
+    }
+
+    @OnClick({R.id.btn_cancel, R.id.btn_start, R.id.btn_install})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_cancel:
-                Beta.cancelDownload();
+                mTask.cancel();
                 finish();
                 break;
             case R.id.btn_start:
-                DownloadTask task = Beta.startDownload();
-                updateBtn(task);
-                finish();
+                if (mIsForce) {
+                    mBtnStart.setVisibility(View.GONE);
+                    mPbProgress.setVisibility(View.VISIBLE);
+                    mTask.enqueue(mListener);
+                } else {
+                    mTask.enqueue(AppContext.getInstance().getUpgradeListener());
+                    finish();
+                }
+                break;
+            case R.id.btn_install:
+                AppUtils.installApp(Constants.PATH_EXTERNAL_CACHE_DOWNLOAD + "今日头条.apk");
                 break;
             default:
                 break;
         }
     }
 
-    public void updateBtn(DownloadTask task) {
-        /*根据下载任务状态设置按钮*/
-        switch (task.getStatus()) {
-            case DownloadTask.INIT:
-            case DownloadTask.DELETED:
-            case DownloadTask.FAILED:
-                mBtnStart.setText("开始下载");
-                break;
-            case DownloadTask.COMPLETE:
-                mBtnStart.setText("安装");
-                break;
-            case DownloadTask.DOWNLOADING:
-                mBtnStart.setText("暂停");
-                break;
-            case DownloadTask.PAUSED:
-                mBtnStart.setText("继续下载");
-                break;
-            default:
-                break;
+    private void calcProgressToView(long offset, long total) {
+        float percent = (float) offset / total;
+        mPbProgress.setProgress((int) (percent * mPbProgress.getMax()));
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!mIsForce){
+            super.onBackPressed();
         }
     }
 
@@ -140,7 +208,8 @@ public class UpgradeActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        /*注销下载监听*/
-        Beta.unregisterDownloadListener();
+        if (mIsForce){
+            mTask.cancel();
+        }
     }
 }

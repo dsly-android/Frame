@@ -28,6 +28,8 @@ allprojects {
         maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
         //Sophix
         maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+        //okdownload
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
 }
 

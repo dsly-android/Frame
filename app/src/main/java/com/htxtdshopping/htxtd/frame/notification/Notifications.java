@@ -29,8 +29,6 @@ public class Notifications {
     private static final int NOTIFICATION_CUSTOM = 3;
     private static final int NOTIFICATION_FOREGROUND_SERVICE = 4;
 
-    private static volatile Notifications sInstance;
-
     public static Notifications getInstance() {
         return LazyHolder.INSTANCE;
     }

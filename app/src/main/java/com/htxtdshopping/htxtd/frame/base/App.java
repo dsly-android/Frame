@@ -24,6 +24,7 @@ import com.htxtdshopping.htxtd.frame.notification.NotificationChannels;
 import com.htxtdshopping.htxtd.frame.ui.second.activity.UpgradeActivity;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.view.refresh.NewsRefreshHeader;
+import com.liulishuo.okdownload.core.dispatcher.DownloadDispatcher;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.https.HttpsUtils;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
@@ -92,6 +93,8 @@ public class App extends DaggerApplication {
         initNotificationChannels();
         //初始化UShare
         initUShare();
+        //okdownload
+        initOkDownload();
     }
 
     private void initOkGo() {
@@ -329,5 +332,9 @@ public class App extends DaggerApplication {
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
         return DaggerAppComponent.builder().build();
+    }
+
+    private void initOkDownload(){
+        DownloadDispatcher.setMaxParallelRunningCount(3);
     }
 }

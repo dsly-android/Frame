@@ -19,6 +19,8 @@ public class NotificationChannels {
 
     public final static String CHANNEL_HIGH = "high";
     public final static String CHANNEL_LOW = "low";
+    private final static String GROUP_ID = "category";
+    private final static String GROUP_NAME = "通知类别";
 
     public static void createAllNotificationChannels(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -27,7 +29,7 @@ public class NotificationChannels {
             if (nm == null) {
                 return;
             }
-            NotificationChannelGroup group = new NotificationChannelGroup("aaa","aaa");
+            NotificationChannelGroup group = new NotificationChannelGroup(GROUP_ID, GROUP_NAME);
             nm.createNotificationChannelGroup(group);
 
             NotificationChannel importantChannel = new NotificationChannel(CHANNEL_HIGH, "重要的通知", NotificationManager.IMPORTANCE_HIGH);
@@ -45,11 +47,11 @@ public class NotificationChannels {
             importantChannel.setSound(null, null);
             //震动的频率
             importantChannel.setVibrationPattern(null);
-            importantChannel.setGroup("aaa");
+            importantChannel.setGroup(GROUP_ID);
             nm.createNotificationChannel(importantChannel);
 
-            NotificationChannel normalChannel = new NotificationChannel(CHANNEL_LOW,"正常的通知",NotificationManager.IMPORTANCE_LOW);
-            normalChannel.setGroup("aaa");
+            NotificationChannel normalChannel = new NotificationChannel(CHANNEL_LOW, "正常的通知", NotificationManager.IMPORTANCE_LOW);
+            normalChannel.setGroup(GROUP_ID);
             nm.createNotificationChannel(normalChannel);
         }
     }

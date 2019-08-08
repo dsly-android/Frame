@@ -41,6 +41,7 @@
 -keep class okhttp3.** {*;}
 -keep interface okhttp3.** {*;}
 -dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
 -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
 -dontwarn org.codehaus.mojo.animal_sniffer.*
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
@@ -373,6 +374,13 @@
 -dontwarn com.shuyu.gsyvideoplayer.utils.**
 -keep class tv.danmaku.ijk.** { *; }
 -dontwarn tv.danmaku.ijk.**
+
+#okdownload
+-keepnames class com.liulishuo.okdownload.core.connection.DownloadOkHttp3Connection
+-keep class com.liulishuo.okdownload.core.breakpoint.BreakpointStoreOnSQLite {
+        public com.liulishuo.okdownload.core.breakpoint.DownloadStore createRemitSelf();
+        public com.liulishuo.okdownload.core.breakpoint.BreakpointStoreOnSQLite(android.content.Context);
+}
 
 #-------------------------------------------基本不用动区域--------------------------------------------
 #---------------------------------基本指令区----------------------------------
