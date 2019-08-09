@@ -88,6 +88,13 @@
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="版本更新"/>
+
+            <Button
+                android:id="@+id/btn_lifecycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="lifecycle"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
