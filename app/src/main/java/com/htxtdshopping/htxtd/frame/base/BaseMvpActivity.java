@@ -2,6 +2,8 @@ package com.htxtdshopping.htxtd.frame.base;
 
 import android.os.Bundle;
 
+import com.android.dsly.rxhttp.IView;
+
 import javax.inject.Inject;
 
 import androidx.annotation.Nullable;

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.dsly.rxhttp.IView;
 import com.trello.rxlifecycle3.components.support.RxFragment;
 
 import org.simple.eventbus.EventBus;

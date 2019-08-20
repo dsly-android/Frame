@@ -7,19 +7,14 @@ import android.view.View;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import androidx.annotation.NonNull;
-import permissions.dispatcher.NeedsPermission;
-import permissions.dispatcher.OnNeverAskAgain;
-import permissions.dispatcher.OnPermissionDenied;
-import permissions.dispatcher.OnShowRationale;
-import permissions.dispatcher.PermissionRequest;
-import permissions.dispatcher.RuntimePermissions;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author chenzhipeng
  */
-@RuntimePermissions
 public class PermissionActivity extends BaseFitsWindowActivity {
 
     @Override
@@ -28,7 +23,8 @@ public class PermissionActivity extends BaseFitsWindowActivity {
     }
 
     @Override
-    public void initView(Bundle savedInstanceState) {}
+    public void initView(Bundle savedInstanceState) {
+    }
 
     @Override
     public void initEvent() {
@@ -40,34 +36,20 @@ public class PermissionActivity extends BaseFitsWindowActivity {
 
     }
 
-    public void click(View view){
-        PermissionActivityPermissionsDispatcher.readCalendarWithPermissionCheck(this);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        PermissionActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
-    }
-
-    @NeedsPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    public void readCalendar() {
-        ToastUtils.showLong("成功");
-    }
-
-    @OnShowRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    public void onShowRationale(PermissionRequest request) {
-        ToastUtils.showLong("OnShowRationale");
-        request.proceed();
-    }
-
-    @OnPermissionDenied(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    public void onPermissionDenied() {
-        ToastUtils.showLong("OnPermissionDenied");
-    }
-
-    @OnNeverAskAgain(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    public void onNeverAskAgain() {
-        ToastUtils.showLong("OnNeverAskAgain");
+    public void click(View view) {
+        new RxPermissions(this)
+                .requestEach(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {
+                            ToastUtils.showLong("成功");
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            ToastUtils.showLong("shouldShowRequestPermissionRationale");
+                        } else {
+                            ToastUtils.showLong("OnPermissionDenied");
+                        }
+                    }
+                });
     }
 }

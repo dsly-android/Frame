@@ -35,19 +35,26 @@
 #在这下面写自定义View的类的类，没有就去掉这句话！
 
 # ----------------------------- 第三方 -----------------------------
-#okgo
-#okhttp
--dontwarn okhttp3.**
--keep class okhttp3.** {*;}
--keep interface okhttp3.** {*;}
+#retrofit
+-keepattributes Signature, InnerClasses, EnclosingMethod
+-keepattributes RuntimeVisibleAnnotations, RuntimeVisibleParameterAnnotations
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn javax.annotation.**
--dontwarn org.conscrypt.**
+-dontwarn kotlin.Unit
+-dontwarn retrofit2.KotlinExtensions
+-dontwarn retrofit2.KotlinExtensions$*
+-if interface * { @retrofit2.http.* <methods>; }
+-keep,allowobfuscation interface <1>
+#okhttp
+-dontwarn javax.annotation.**
 -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
 -dontwarn org.codehaus.mojo.animal_sniffer.*
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
 #okio
--dontwarn okio.**
--keep class okio.**{*;}
+-dontwarn org.codehaus.mojo.animal_sniffer.*
 #rxjava
 -dontwarn sun.misc.**
 -keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
@@ -61,6 +68,13 @@
  rx.internal.util.atomic.LinkedQueueNode consumerNode;
 }
 -dontnote rx.internal.util.PlatformDependent
+#RetrofitUrlManager
+-keep class me.jessyan.retrofiturlmanager.** { *; }
+-keep interface me.jessyan.retrofiturlmanager.** { *; }
+#RxLifeCycle
+-dontwarn com.trello.rxlifecycle2.**
+-keep class com.trello.rxlifecycle2.** { *; }
+-keep interface com.trello.rxlifecycle2.** { *; }
 
 #fastjson
 -dontwarn com.alibaba.fastjson.**
@@ -110,11 +124,6 @@
 -dontwarn butterknife.internal.**
 -keep class **$$ViewBinder { *; }
 -keepnames class * { @butterknife.InjectView *;}
-
-#RxLifeCycle
--dontwarn com.trello.rxlifecycle2.**
--keep class com.trello.rxlifecycle2.** { *; }
--keep interface com.trello.rxlifecycle2.** { *; }
 
 #glide
 -keep public class * implements com.bumptech.glide.module.GlideModule

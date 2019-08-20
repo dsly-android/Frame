@@ -1,13 +1,13 @@
 package com.htxtdshopping.htxtd.frame.ui.first.presenter;
 
+import com.android.dsly.rxhttp.observer.CommonObserver;
+import com.android.dsly.rxhttp.utils.RxLifecycleUtils;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.htxtdshopping.htxtd.frame.base.BasePresenter;
 import com.htxtdshopping.htxtd.frame.bean.NewsPictureBean;
 import com.htxtdshopping.htxtd.frame.bean.NewsTextBean;
 import com.htxtdshopping.htxtd.frame.bean.NewsVideoBean;
-import com.htxtdshopping.htxtd.frame.network.ObserverResult;
 import com.htxtdshopping.htxtd.frame.ui.first.view.IRefreshAndLoadMoreView;
-import com.htxtdshopping.htxtd.frame.utils.RxLifecycleUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,9 +69,9 @@ public class RefreshAndLoadMorePresenter extends BasePresenter<IRefreshAndLoadMo
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(RxLifecycleUtils.bindUntilDestroyEvent(mView))
-                .subscribe(new ObserverResult<List<MultiItemEntity>>() {
+                .subscribe(new CommonObserver<List<MultiItemEntity>>() {
                     @Override
-                    public void onNext(List<MultiItemEntity> multiItemEntities) {
+                    protected void onSuccess(List<MultiItemEntity> multiItemEntities) {
                         if (isRefresh) {
                             mView.loadDataSuccess(multiItemEntities, true);
                         } else {
@@ -81,7 +81,8 @@ public class RefreshAndLoadMorePresenter extends BasePresenter<IRefreshAndLoadMo
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    protected void onError(String errorMsg) {
+                        super.onError(errorMsg);
                         mView.loadDataFail();
                         mView.hideLoading();
                     }

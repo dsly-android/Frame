@@ -19,23 +19,18 @@ import com.htxtdshopping.htxtd.frame.ui.first.presenter.FirstPresenter;
 import com.htxtdshopping.htxtd.frame.ui.first.view.IFirstView;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.zxing.CaptureActivity;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
-import permissions.dispatcher.NeedsPermission;
-import permissions.dispatcher.OnNeverAskAgain;
-import permissions.dispatcher.OnPermissionDenied;
-import permissions.dispatcher.OnShowRationale;
-import permissions.dispatcher.PermissionRequest;
-import permissions.dispatcher.RuntimePermissions;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author 陈志鹏
  * @date 2018/9/7
  */
-@RuntimePermissions
 public class FirstFragment extends BaseLazyMvpFragment<FirstPresenter> implements IFirstView {
 
     private static final int KEY_SCAN_QR_CODE = 1;
@@ -63,7 +58,7 @@ public class FirstFragment extends BaseLazyMvpFragment<FirstPresenter> implement
     }
 
     @OnClick({R.id.btn_refresh_and_load_more, R.id.btn_permission, R.id.btn_scanQrCode, R.id.btn_generateQrCode,
-            R.id.btn_banner,R.id.btn_rxjava})
+            R.id.btn_banner, R.id.btn_rxjava})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_refresh_and_load_more:
@@ -73,7 +68,7 @@ public class FirstFragment extends BaseLazyMvpFragment<FirstPresenter> implement
                 ActivityUtils.startActivity(PermissionActivity.class);
                 break;
             case R.id.btn_scanQrCode:
-                FirstFragmentPermissionsDispatcher.cameraWithPermissionCheck(this);
+                requestPermission();
                 break;
             case R.id.btn_generateQrCode:
                 ActivityUtils.startActivity(GenerateQrCodeActivity.class);
@@ -94,6 +89,24 @@ public class FirstFragment extends BaseLazyMvpFragment<FirstPresenter> implement
 
     }
 
+    private void requestPermission() {
+        new RxPermissions(this)
+                .requestEach(Manifest.permission.CAMERA)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {
+                            Intent intent = new Intent(getContext(), CaptureActivity.class);
+                            startActivityForResult(intent, KEY_SCAN_QR_CODE);
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            ToastUtils.showLong("shouldShowRequestPermissionRationale");
+                        } else {
+                            ToastUtils.showLong("OnNeverAskAgain");
+                        }
+                    }
+                });
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -108,33 +121,5 @@ public class FirstFragment extends BaseLazyMvpFragment<FirstPresenter> implement
             default:
                 break;
         }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        FirstFragmentPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
-    }
-
-    @NeedsPermission(Manifest.permission.CAMERA)
-    public void camera() {
-        Intent intent = new Intent(getContext(), CaptureActivity.class);
-        startActivityForResult(intent, KEY_SCAN_QR_CODE);
-    }
-
-    @OnShowRationale(Manifest.permission.CAMERA)
-    public void onShowRationale(PermissionRequest request) {
-        ToastUtils.showLong("OnShowRationale");
-        request.proceed();
-    }
-
-    @OnPermissionDenied(Manifest.permission.CAMERA)
-    public void onPermissionDenied() {
-        ToastUtils.showLong("OnPermissionDenied");
-    }
-
-    @OnNeverAskAgain(Manifest.permission.CAMERA)
-    public void onNeverAskAgain() {
-        ToastUtils.showLong("OnNeverAskAgain");
     }
 }

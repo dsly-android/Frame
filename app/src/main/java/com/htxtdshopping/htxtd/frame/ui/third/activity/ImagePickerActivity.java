@@ -26,28 +26,23 @@ import com.htxtdshopping.htxtd.frame.utils.local_data.ImageDataUtils;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageFolder;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageItem;
 import com.htxtdshopping.htxtd.frame.view.TitleBar;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.OnClick;
-import permissions.dispatcher.NeedsPermission;
-import permissions.dispatcher.OnNeverAskAgain;
-import permissions.dispatcher.OnPermissionDenied;
-import permissions.dispatcher.OnShowRationale;
-import permissions.dispatcher.PermissionRequest;
-import permissions.dispatcher.RuntimePermissions;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author chenzhipeng
  */
-@RuntimePermissions
 public class ImagePickerActivity extends BaseFitsWindowActivity implements ImageDataUtils.OnImagesLoadedListener, ImageFolderPopupWindow.OnImageFolderSelectedListener {
 
     public static final String RESULT_KEY_IMAGE_PATH = "result_key_image_path";
@@ -105,6 +100,7 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
 
         mRvContent.setLayoutManager(new GridLayoutManager(this, 4));
         mRvContent.addItemDecoration(new GridDividerItemDecoration(this, 10));
+        mRvContent.setItemAnimator(null);
         mAdapter = new ImagePickerAdapter(mSelectMode);
         mRvContent.setAdapter(mAdapter);
     }
@@ -117,7 +113,7 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
                 MultiItemEntity entity = mAdapter.getData().get(position);
                 int itemType = entity.getItemType();
                 if (itemType == ImagePickerAdapter.CAMERA) {
-                    ImagePickerActivityPermissionsDispatcher.takePhotoWithPermissionCheck(ImagePickerActivity.this);
+                    requestPermission();
                 } else {
                     ImageItem imageItem = (ImageItem) entity;
                     if (mSelectMode == MODE_AVATAR) {
@@ -141,7 +137,7 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
                             }
                         }
                         imageItem.isChecked = !imageItem.isChecked;
-                        mAdapter.notifyItemChanged(position, 0);
+                        mAdapter.notifyItemChanged(position);
                         if (imageItem.isChecked == true) {
                             mSelectedImages.add(imageItem);
                         } else {
@@ -173,7 +169,7 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
         new ImageDataUtils(this, null, this);
     }
 
-    private void refreshView(){
+    private void refreshView() {
         if (mSelectedImages.size() == 0) {
             mTvPreview.setText("预览");
             mTbTitle.setRightTextString("完成");
@@ -185,6 +181,30 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
             mTbTitle.setRightTextClickable(true);
             mTbTitle.setAlpha(1);
         }
+    }
+
+    private void requestPermission() {
+        new RxPermissions(this)
+                .requestEachCombined(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {
+                            // 设置系统相机拍照后的输出路径
+                            // 创建临时文件
+                            if (SDCardUtils.isSDCardEnableByEnvironment()) {
+                                mCameraTmpFile = new File(Constants.PATH_EXTERNAL_CACHE_IMAGE, "avatar.jpg");
+                            } else {
+                                mCameraTmpFile = new File(Constants.PATH_CACHE_IMAGE, "avatar.jpg");
+                            }
+                            IntentUtils.toCapture(ImagePickerActivity.this, mCameraTmpFile, CODE_TAKE_PHOTO);
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            ToastUtils.showLong("shouldShowRequestPermissionRationale");
+                        } else {
+                            ToastUtils.showLong("请到设置中开启相机权限");
+                        }
+                    }
+                });
     }
 
     @Override
@@ -243,7 +263,7 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
         mAdapter.notifyDataSetChanged();
     }
 
-    private void setResult(){
+    private void setResult() {
         ArrayList<String> imagePaths = new ArrayList<>();
         for (int i = 0; i < mSelectedImages.size(); i++) {
             imagePaths.add(mSelectedImages.get(i).path);
@@ -276,7 +296,7 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
                 finish();
                 break;
             case CODE_IMAGE_PREVIEW:
-                if (resultCode != RESULT_OK){
+                if (resultCode != RESULT_OK) {
                     return;
                 }
                 ArrayList<ImageItem> images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePreviewActivity.RESULT_KEY_ALL_IMAGE);
@@ -287,13 +307,13 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
                 }
                 mSelectedImages.clear();
                 for (int i = 0; i < allImages.size(); i++) {
-                    if (allImages.get(i).isChecked){
+                    if (allImages.get(i).isChecked) {
                         mSelectedImages.add(allImages.get(i));
                     }
                 }
                 mAdapter.notifyDataSetChanged();
                 refreshView();
-                if (isFinish){
+                if (isFinish) {
                     setResult();
                 }
                 break;
@@ -309,38 +329,5 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        ImagePickerActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
-    }
-
-    @NeedsPermission({Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE})
-    public void takePhoto() {
-        // 设置系统相机拍照后的输出路径
-        // 创建临时文件
-        if (SDCardUtils.isSDCardEnableByEnvironment()) {
-            mCameraTmpFile = new File(Constants.PATH_EXTERNAL_CACHE_IMAGE, "avatar.jpg");
-        } else {
-            mCameraTmpFile = new File(Constants.PATH_CACHE_IMAGE, "avatar.jpg");
-        }
-        IntentUtils.toCapture(this, mCameraTmpFile, CODE_TAKE_PHOTO);
-    }
-
-    @OnShowRationale({Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE})
-    public void onShowRationale(PermissionRequest request) {
-        request.proceed();
-    }
-
-    @OnPermissionDenied({Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE})
-    public void onPermissionDenied() {
-        ToastUtils.showLong("此功能需要相机权限");
-    }
-
-    @OnNeverAskAgain({Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE})
-    public void onNeverAskAgain() {
-        ToastUtils.showLong("请到设置中开启相机权限");
     }
 }

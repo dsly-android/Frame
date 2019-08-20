@@ -1,7 +1,7 @@
 package com.htxtdshopping.htxtd.frame.ui.first.view;
 
+import com.android.dsly.rxhttp.IView;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.htxtdshopping.htxtd.frame.base.IView;
 
 import java.util.List;
 

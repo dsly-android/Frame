@@ -9,6 +9,12 @@ import com.alibaba.sdk.android.oss.ClientConfiguration;
 import com.alibaba.sdk.android.oss.OSS;
 import com.alibaba.sdk.android.oss.OSSClient;
 import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider;
+import com.android.dsly.rxhttp.RxHttp;
+import com.android.dsly.rxhttp.cache.CacheEntity;
+import com.android.dsly.rxhttp.cache.CacheMode;
+import com.android.dsly.rxhttp.cookie.store.SPCookieStore;
+import com.android.dsly.rxhttp.interceptor.HttpLoggingInterceptor;
+import com.android.dsly.rxhttp.utils.HttpsUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.CrashUtils;
 import com.blankj.utilcode.util.LogUtils;
@@ -25,9 +31,6 @@ import com.htxtdshopping.htxtd.frame.ui.second.activity.UpgradeActivity;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.view.refresh.NewsRefreshHeader;
 import com.liulishuo.okdownload.core.dispatcher.DownloadDispatcher;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.https.HttpsUtils;
-import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshInitializer;
@@ -57,6 +60,7 @@ import dagger.android.DaggerApplication;
 import me.jessyan.autosize.AutoSize;
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.unit.Subunits;
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.OkHttpClient;
 
 /**
@@ -69,8 +73,8 @@ public class App extends DaggerApplication {
     public void onCreate() {
         super.onCreate();
         AppContext.init(this);
-        //初始化OkGo
-        initOkGo();
+        //初始化RxHttp
+        initRxHttp();
         //初始化LitePal
         LitePal.initialize(this);
         //初始化AndroidAutoSize
@@ -97,41 +101,49 @@ public class App extends DaggerApplication {
         initOkDownload();
     }
 
-    private void initOkGo() {
+    private void initRxHttp() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
-        //log相关
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("OkGo");
-        //log打印级别，决定了log显示的详细程度
-        loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
-        //log颜色级别，决定了log在控制台显示的颜色
-        loggingInterceptor.setColorLevel(Level.INFO);
-        //添加OkGo默认debug日志
-        builder.addInterceptor(loggingInterceptor);
-
-        //超时时间设置，默认60秒
         //全局的读取超时时间
-        builder.readTimeout(OkGo.DEFAULT_MILLISECONDS / 2, TimeUnit.MILLISECONDS);
+        builder.readTimeout(RxHttp.DEFAULT_MILLISECONDS / 2, TimeUnit.MILLISECONDS);
         //全局的写入超时时间
-        builder.writeTimeout(OkGo.DEFAULT_MILLISECONDS / 2, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(RxHttp.DEFAULT_MILLISECONDS / 2, TimeUnit.MILLISECONDS);
         //全局的连接超时时间
-        builder.connectTimeout(OkGo.DEFAULT_MILLISECONDS / 2, TimeUnit.MILLISECONDS);
+        builder.connectTimeout(RxHttp.DEFAULT_MILLISECONDS / 2, TimeUnit.MILLISECONDS);
 
-        //方法一：信任所有证书,不安全有风险
+        //1、信任所有证书,不安全有风险（默认信任所有证书）
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory();
-        //方法三：使用预埋证书，校验服务端证书（自签名证书）
-//        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(getAssets().open("srca.cer"));
+        //2、使用预埋证书，校验服务端证书（自签名证书）
+        //HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(getAssets().open("srca.cer"));
+        //3、使用bks证书和密码管理客户端证书（双向认证），使用预埋证书，校验服务端证书（自签名证书）
+        //HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(bksInputStream,"123456",cerInputStream);
         builder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
 
-        //必须调用初始化
-        OkGo.getInstance().init(this)
-                //建议设置OkHttpClient，不设置会使用默认的
-                .setOkHttpClient(builder.build());
-//                .setCacheMode(CacheMode.NO_CACHE)               //全局统一缓存模式，默认不使用缓存，可以不传
-//                .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE)   //全局统一缓存时间，默认永不过期，可以不传
-//                .setRetryCount(3);   //全局统一超时重连次数，默认为三次，那么最差的情况会请求4次(一次原始请求，三次重连请求)，不需要可以设置为0
-//                .addCommonHeaders(headers)                      //全局公共头
-//                .addCommonParams(params);                       //全局公共参数
+        //设置Hostname校验规则，默认实现返回true，需要时候传入相应校验规则即可
+        //builder.hostnameVerifier(null);
+
+        if (BuildConfig.DEBUG) {
+            //log相关
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("RxHttp");
+            //log打印级别，决定了log显示的详细程度
+            loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
+            //log颜色级别，决定了log在控制台显示的颜色
+            loggingInterceptor.setColorLevel(Level.INFO);
+            //添加RxHttp默认debug日志
+            builder.addInterceptor(loggingInterceptor);
+        }
+
+        RxHttp.getInstance()
+                .setBaseUrl("https://www.apiopen.top/")
+                .setOkHttpClientBuild(RetrofitUrlManager.getInstance().with(builder))
+//                .addCommonHeader("aaa","aaa")  //全局公共头
+//                .addCommonHeaders(new LinkedHashMap<String, String>())   //全局公共头
+                .setCookieType(new SPCookieStore(this)) //使用sp保持cookie，如果cookie不过期，则一直有效
+//                .setCookieType(new MemoryCookieStore()) //使用内存保持cookie，app退出后，cookie消失
+//                .setCookieType(new DBCookieStore(this)) ////使用数据库保持cookie，如果cookie不过期，则一直有效
+                .setCacheMode(CacheMode.NO_CACHE) //缓存模式，默认不缓存
+                .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE) //缓存过期时间，默认远不过期
+                .init(this);
     }
 
     private void initAutoSize() {

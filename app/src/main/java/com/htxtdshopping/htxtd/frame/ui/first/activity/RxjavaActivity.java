@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.android.dsly.rxhttp.observer.CommonObserver;
 import com.blankj.utilcode.util.LogUtils;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.network.ObserverResult;
 import com.htxtdshopping.htxtd.frame.network.ServerApi;
-import com.lzy.okgo.model.Response;
 
 import java.util.concurrent.TimeUnit;
 
@@ -70,19 +69,19 @@ public class RxjavaActivity extends BaseFitsWindowActivity {
     }
 
     private void test1() {
-        Observable.just("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2230167403,4188800858&fm=27&gp=0.jpg")
-                .flatMap(new Function<String, Observable<Response<Bitmap>>>() {
+        Observable.just("")
+                .flatMap(new Function<String, Observable<Bitmap>>() {
                     @Override
-                    public Observable<Response<Bitmap>> apply(String s) throws Exception {
-                        return ServerApi.getBitmap(s);
+                    public Observable<Bitmap> apply(String s) throws Exception {
+                        return ServerApi.getBitmap("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2230167403,4188800858&fm=27&gp=0.jpg");
                     }
                 }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(bindToLifecycle())
-                .subscribe(new ObserverResult<Response<Bitmap>>() {
+                .subscribe(new CommonObserver<Bitmap>() {
                     @Override
-                    public void onNext(Response<Bitmap> bitmapResponse) {
-                        mIvTest1.setImageBitmap(bitmapResponse.body());
+                    protected void onSuccess(Bitmap bitmap) {
+                        mIvTest1.setImageBitmap(bitmap);
                     }
                 });
     }

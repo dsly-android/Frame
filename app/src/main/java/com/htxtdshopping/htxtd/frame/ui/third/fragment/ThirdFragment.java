@@ -19,18 +19,18 @@ import com.htxtdshopping.htxtd.frame.ui.third.activity.NotificationActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.PopupWindowActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.ServiceActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.VoiceRecordActivity;
+import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import androidx.annotation.NonNull;
 import butterknife.BindView;
 import butterknife.OnClick;
-import permissions.dispatcher.NeedsPermission;
-import permissions.dispatcher.RuntimePermissions;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author 陈志鹏
  * @date 2018/9/7
  */
-@RuntimePermissions
 public class ThirdFragment extends BaseLazyFragment {
 
     @BindView(R.id.v_bar)
@@ -57,7 +57,7 @@ public class ThirdFragment extends BaseLazyFragment {
     }
 
     @OnClick({R.id.btn_grid, R.id.btn_list, R.id.btn_record, R.id.btn_popup, R.id.btn_image_picker,
-            R.id.btn_notification, R.id.btn_service, R.id.btn_login,R.id.btn_design,R.id.btn_version_update,
+            R.id.btn_notification, R.id.btn_service, R.id.btn_login, R.id.btn_design, R.id.btn_version_update,
             R.id.btn_lifecycle})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -68,7 +68,7 @@ public class ThirdFragment extends BaseLazyFragment {
                 ActivityUtils.startActivity(ListActivity.class);
                 break;
             case R.id.btn_record:
-                ThirdFragmentPermissionsDispatcher.recordAudioWithPermissionCheck(this);
+                requestPermission();
                 break;
             case R.id.btn_popup:
                 ActivityUtils.startActivity(PopupWindowActivity.class);
@@ -99,14 +99,20 @@ public class ThirdFragment extends BaseLazyFragment {
         }
     }
 
-    @NeedsPermission(Manifest.permission.RECORD_AUDIO)
-    public void recordAudio() {
-        ActivityUtils.startActivity(VoiceRecordActivity.class);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        ThirdFragmentPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+    private void requestPermission() {
+        new RxPermissions(this)
+                .requestEach(Manifest.permission.RECORD_AUDIO)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {
+                            ActivityUtils.startActivity(VoiceRecordActivity.class);
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            ToastUtils.showLong("shouldShowRequestPermissionRationale");
+                        } else {
+                            ToastUtils.showLong("请到设置中开启相机权限");
+                        }
+                    }
+                });
     }
 }

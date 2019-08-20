@@ -1,6 +1,7 @@
 package com.htxtdshopping.htxtd.frame.ui.first.view;
 
-import com.htxtdshopping.htxtd.frame.base.IView;
+
+import com.android.dsly.rxhttp.IView;
 
 /**
  * @author 陈志鹏

@@ -1,5 +1,7 @@
 package com.htxtdshopping.htxtd.frame.base;
 
+import com.android.dsly.rxhttp.IView;
+
 import org.simple.eventbus.EventBus;
 
 /**

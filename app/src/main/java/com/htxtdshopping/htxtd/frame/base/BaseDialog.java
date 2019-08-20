@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.WindowManager;
 
+import com.android.dsly.rxhttp.IView;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.htxtdshopping.htxtd.frame.R;
 

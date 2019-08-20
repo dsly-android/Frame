@@ -2,6 +2,8 @@ package com.htxtdshopping.htxtd.frame.base;
 
 import android.os.Bundle;
 
+import com.android.dsly.rxhttp.IView;
+
 /**
  * @author 陈志鹏
  * @date 2018/9/7

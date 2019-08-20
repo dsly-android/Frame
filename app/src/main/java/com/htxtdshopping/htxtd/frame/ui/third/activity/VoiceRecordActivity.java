@@ -11,18 +11,17 @@ import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.utils.VoiceRecordManager;
 import com.htxtdshopping.htxtd.frame.view.VoiceLineView;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.File;
 
-import androidx.annotation.NonNull;
 import butterknife.BindView;
-import permissions.dispatcher.NeedsPermission;
-import permissions.dispatcher.RuntimePermissions;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author chenzhipeng
  */
-@RuntimePermissions
 public class VoiceRecordActivity extends BaseActivity {
 
     @BindView(R.id.vlv_wave)
@@ -84,13 +83,21 @@ public class VoiceRecordActivity extends BaseActivity {
         mManager.setOnAudioRecordListener(null);
     }
 
-    @NeedsPermission(Manifest.permission.RECORD_AUDIO)
-    public void startRecord(){
-        mManager.start();
-    }
-
     public void start(View view) {
-        VoiceRecordActivityPermissionsDispatcher.startRecordWithPermissionCheck(this);
+        new RxPermissions(this)
+                .requestEach(Manifest.permission.RECORD_AUDIO)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {
+                            mManager.start();
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            ToastUtils.showLong("shouldShowRequestPermissionRationale");
+                        } else {
+                            ToastUtils.showLong("请到设置中开启相机权限");
+                        }
+                    }
+                });
     }
 
     public void pause(View view) {
@@ -107,11 +114,5 @@ public class VoiceRecordActivity extends BaseActivity {
 
     public void record(View view) {
         ActivityUtils.startActivity(VoicePlayActivity.class);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        VoiceRecordActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
     }
 }

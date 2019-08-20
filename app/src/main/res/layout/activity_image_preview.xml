@@ -15,9 +15,11 @@
         android:layout_height="match_parent"
         android:overScrollMode="never"/>
 
-    <include
-        android:id="@+id/cl_parent"
-        layout="@layout/view_title"/>
+    <com.htxtdshopping.htxtd.frame.view.TitleBar
+        android:id="@+id/tb_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_title_bar"
+        app:tb_title="选择图片"/>
 
     <FrameLayout
         android:id="@+id/fl_footer"

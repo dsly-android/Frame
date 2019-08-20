@@ -14,11 +14,11 @@ import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.ImagePageAdapter;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageItem;
+import com.htxtdshopping.htxtd.frame.view.TitleBar;
 import com.htxtdshopping.htxtd.frame.view.ZoomViewPager;
 
 import java.util.ArrayList;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
@@ -32,8 +32,8 @@ public class ImagePreviewActivity extends BaseActivity {
     public static final String KEY_MAX_SELECT_NUM = "key_max_select_num";
     public static final String RESULT_KEY_ALL_IMAGE = "result_key_all_image";
     public static final String RESULT_KEY_FINISH = "result_key_finish";
-    @BindView(R.id.cl_parent)
-    ConstraintLayout mClParent;
+    @BindView(R.id.tb_title)
+    TitleBar mTbTitle;
     @BindView(R.id.tv_back)
     TextView mTvBack;
     @BindView(R.id.tv_right)
@@ -64,10 +64,10 @@ public class ImagePreviewActivity extends BaseActivity {
         BarUtils.setStatusBarColor(this, ContextCompat.getColor(this, android.R.color.transparent));
         mTvRight.setVisibility(View.VISIBLE);
 
-        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mClParent.getLayoutParams();
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mTbTitle.getLayoutParams();
         params.height += BarUtils.getStatusBarHeight();
-        mClParent.setLayoutParams(params);
-        mClParent.setPadding(0, BarUtils.getStatusBarHeight(), 0, 0);
+        mTbTitle.setLayoutParams(params);
+        mTbTitle.setPadding(0, BarUtils.getStatusBarHeight(), 0, 0);
 
         mAllImages = (ArrayList<ImageItem>) getIntent().getSerializableExtra(KEY_All_IMAGE);
         mSelectedPath = getIntent().getStringExtra(KEY_SELECTED_PATH);
@@ -190,13 +190,13 @@ public class ImagePreviewActivity extends BaseActivity {
 
     private void hideStatusBar() {
         mBarStatus = false;
-        mClParent.animate().translationY(-mClParent.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+        mTbTitle.animate().translationY(-mTbTitle.getHeight()).setInterpolator(new AccelerateInterpolator(2));
         mFlFooter.animate().alpha(0.0f).setInterpolator(new AccelerateInterpolator(2));
     }
 
     private void showStatusBar() {
         mBarStatus = true;
-        mClParent.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+        mTbTitle.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
         mFlFooter.animate().alpha(1.0f).setInterpolator(new DecelerateInterpolator(2));
     }
 }

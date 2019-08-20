@@ -2,6 +2,8 @@ package com.htxtdshopping.htxtd.frame.base;
 
 import android.app.Activity;
 
+import com.android.dsly.rxhttp.IView;
+
 import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;

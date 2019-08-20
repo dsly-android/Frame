@@ -3,7 +3,8 @@ package com.htxtdshopping.htxtd.frame.network;
 import java.io.Serializable;
 
 /**
- * @author 陈志鹏
+ * 根据接口数据自定义BaseResponse
+ * @author dsly
  * @date 2018/7/27
  */
 public class BaseResponse<T> implements Serializable {

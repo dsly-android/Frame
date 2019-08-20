@@ -95,10 +95,8 @@ dependencies {
     //multidex
     implementation 'androidx.multidex:multidex:2.0.1'
 
-    //okgo
-    implementation 'com.lzy.net:okgo:3.0.4'
-    implementation 'com.lzy.net:okrx2:2.0.2'
-    implementation 'com.lzy.net:okserver:2.0.5'
+    //rxhttp
+    implementation 'com.android.dsly:rxhttp:1.0.1'
 
     //fastjson
     implementation 'com.alibaba:fastjson:1.1.71.android'
@@ -119,9 +117,6 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
 
-    //RxLifecycle
-    implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
-
     //glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
@@ -138,9 +133,8 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-15'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    //PermissionsDispatcher
-    implementation 'com.github.hotchemi:permissionsdispatcher:4.1.0'
-    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:4.1.0"
+    //RxPermissions
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
     //zxing
     implementation 'com.google.zxing:core:3.3.0'

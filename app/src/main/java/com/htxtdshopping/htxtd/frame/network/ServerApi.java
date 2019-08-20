@@ -16,24 +16,30 @@
 package com.htxtdshopping.htxtd.frame.network;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
+import com.android.dsly.rxhttp.RxHttp;
 import com.htxtdshopping.htxtd.frame.event.VersionUpdateEvent;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.convert.BitmapConvert;
-import com.lzy.okgo.model.Response;
-import com.lzy.okrx2.adapter.ObservableResponse;
 
 import io.reactivex.Observable;
+import io.reactivex.functions.Function;
+import okhttp3.ResponseBody;
 
 /**
  * @author chenzhipeng
  */
 public class ServerApi {
 
-    public static Observable<Response<Bitmap>> getBitmap(String imgUrl) {
-        return OkGo.<Bitmap>get(imgUrl)
-                .converter(new BitmapConvert())
-                .adapt(new ObservableResponse<Bitmap>());
+    public static Observable<Bitmap> getBitmap(String imgUrl) {
+        return RxHttp.createApi(CommonApi.class)
+                .getBitmap(imgUrl)
+                .map(new Function<ResponseBody, Bitmap>() {
+                    @Override
+                    public Bitmap apply(ResponseBody responseBody) throws Exception {
+                        byte[] bytes = responseBody.bytes();
+                        return BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                    }
+                });
     }
 
     /**
