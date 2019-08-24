@@ -16,6 +16,8 @@ buildscript {
         classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
         // Sophix 添加emas-services插件
         classpath 'com.aliyun.ams:emas-services:1.0.1'
+        //objectbox
+        classpath "io.objectbox:objectbox-gradle-plugin:2.3.4"
     }
 }
 

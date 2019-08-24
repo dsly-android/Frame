@@ -22,7 +22,10 @@
         android:required="false"/>
     <uses-feature
         android:name="android.hardware.wifi"
-        android:required="false"/>
+        android:required="false"/> <!-- objectbox -->
+    <!-- Required to provide the web interface -->
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- Required to run keep-alive service when targeting API 28 or higher -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <supports-screens
         android:anyDensity="true"
@@ -62,6 +65,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.first.activity.ObjectBoxActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.third.activity.LifecycleActivity"
             android:screenOrientation="portrait"/>
@@ -216,4 +222,5 @@
             android:name="design_height_in_dp"
             android:value="1280"/>
     </application>
+
 </manifest>

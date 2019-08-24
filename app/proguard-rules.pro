@@ -97,17 +97,6 @@
      <init>(android.view.View);
 }
 
-#LitePal
--keep class org.litepal.** {
-    *;
-}
--keep class * extends org.litepal.crud.DataSupport {
-    *;
-}
--keep class * extends org.litepal.crud.LitePalSupport {
-    *;
-}
-
 #leakcanary
 -keep class leakcanary.internal.InternalLeakCanary { *; }
 -keep class leakcanary.internal.AndroidHeapDumper { *; }
@@ -390,6 +379,9 @@
         public com.liulishuo.okdownload.core.breakpoint.DownloadStore createRemitSelf();
         public com.liulishuo.okdownload.core.breakpoint.BreakpointStoreOnSQLite(android.content.Context);
 }
+
+#ObjectBox
+-keep class com.getkeepsafe.relinker.** { *; }
 
 #-------------------------------------------基本不用动区域--------------------------------------------
 #---------------------------------基本指令区----------------------------------

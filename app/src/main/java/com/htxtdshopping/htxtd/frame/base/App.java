@@ -46,8 +46,6 @@ import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 
-import org.litepal.LitePal;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -75,8 +73,6 @@ public class App extends DaggerApplication {
         AppContext.init(this);
         //初始化RxHttp
         initRxHttp();
-        //初始化LitePal
-        LitePal.initialize(this);
         //初始化AndroidAutoSize
         initAutoSize();
         //初始化AndroidUtilCode

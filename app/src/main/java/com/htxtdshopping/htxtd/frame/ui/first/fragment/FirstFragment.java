@@ -12,6 +12,7 @@ import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseLazyMvpFragment;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.BannerActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.GenerateQrCodeActivity;
+import com.htxtdshopping.htxtd.frame.ui.first.activity.ObjectBoxActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.PermissionActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.RefreshAndLoadMoreActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.RxjavaActivity;
@@ -58,7 +59,7 @@ public class FirstFragment extends BaseLazyMvpFragment<FirstPresenter> implement
     }
 
     @OnClick({R.id.btn_refresh_and_load_more, R.id.btn_permission, R.id.btn_scanQrCode, R.id.btn_generateQrCode,
-            R.id.btn_banner, R.id.btn_rxjava})
+            R.id.btn_banner, R.id.btn_rxjava,R.id.btn_objectbox})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_refresh_and_load_more:
@@ -78,6 +79,9 @@ public class FirstFragment extends BaseLazyMvpFragment<FirstPresenter> implement
                 break;
             case R.id.btn_rxjava:
                 ActivityUtils.startActivity(RxjavaActivity.class);
+                break;
+            case R.id.btn_objectbox:
+                ActivityUtils.startActivity(ObjectBoxActivity.class);
                 break;
             default:
                 break;

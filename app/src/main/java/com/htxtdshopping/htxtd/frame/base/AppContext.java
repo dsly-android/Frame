@@ -4,10 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.EncryptUtils;
 import com.blankj.utilcode.util.IntentUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
+import com.getkeepsafe.relinker.ReLinker;
+import com.htxtdshopping.htxtd.frame.BuildConfig;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.constant.Constants;
+import com.htxtdshopping.htxtd.frame.db.MyObjectBox;
 import com.htxtdshopping.htxtd.frame.event.VersionUpdateEvent;
 import com.htxtdshopping.htxtd.frame.network.ServerApi;
 import com.htxtdshopping.htxtd.frame.notification.NotificationChannels;
@@ -22,6 +27,9 @@ import com.liulishuo.okdownload.core.cause.ResumeFailedCause;
 import com.liulishuo.okdownload.core.listener.DownloadListener3;
 
 import androidx.annotation.NonNull;
+import io.objectbox.Box;
+import io.objectbox.BoxStore;
+import io.objectbox.android.AndroidObjectBrowser;
 
 /**
  * @author 陈志鹏
@@ -31,6 +39,7 @@ public class AppContext {
     private static AppContext mAppContext;
     private Context mContext;
     private LoginState mState;
+    private BoxStore mBoxStore;
 
     public static void init(Context context) {
         if (mAppContext == null) {
@@ -49,6 +58,8 @@ public class AppContext {
     public AppContext(Context context) {
         mContext = context;
         mState = new NotLoggedInState();
+
+        initDb("frame");
     }
 
     public LoginState getLoginState() {
@@ -107,7 +118,7 @@ public class AppContext {
 
             @Override
             protected void completed(@NonNull DownloadTask task) {
-                Intent intent = IntentUtils.getInstallAppIntent(task.getFile().getAbsoluteFile(),true);
+                Intent intent = IntentUtils.getInstallAppIntent(task.getFile().getAbsoluteFile(), true);
                 NotificationUtils.createSimpleNotification(Constants.NOTIFICATION_UPGRADE, true, NotificationChannels.CHANNEL_HIGH,
                         intent, R.mipmap.ic_launcher, Utils.getApp().getString(R.string.app_name), "下载完成");
             }
@@ -145,5 +156,38 @@ public class AppContext {
                         (int) (currentOffset * 100 / totalLength), R.mipmap.ic_launcher, Utils.getApp().getString(R.string.app_name), "");
             }
         };
+    }
+
+    /**
+     * 初始化数据库
+     *
+     * @param userId 根据不同用户的userId将不同用户的数据保存到不同的文件夹中
+     */
+    public void initDb(String userId) {
+        mBoxStore = MyObjectBox.builder()
+                .androidContext(mContext)
+                //自己设置保存的文件夹名字
+                .name(EncryptUtils.encryptAES2HexString(userId.getBytes(),
+                        "123456891011234f".getBytes(),
+                        "AES/ECB/PKCS5Padding", null))
+                .androidReLinker(ReLinker.log(new ReLinker.Logger() {
+
+                    @Override
+                    public void log(String message) {
+                        LogUtils.e(message);
+                    }
+                }))
+                .build();
+        if (BuildConfig.DEBUG) {
+            new AndroidObjectBrowser(mBoxStore).start(mContext);
+        }
+    }
+
+    public BoxStore getBoxStore() {
+        return mBoxStore;
+    }
+
+    public static <T> Box<T> boxFor(Class<T> tClass) {
+        return AppContext.getInstance().getBoxStore().boxFor(tClass);
     }
 }

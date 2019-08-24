@@ -14,7 +14,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public String aaa(){
+    public String aaa() {
         return "";
     }
 }
