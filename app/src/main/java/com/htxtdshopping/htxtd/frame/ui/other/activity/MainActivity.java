@@ -10,10 +10,10 @@ import com.htxtdshopping.htxtd.frame.ui.first.fragment.FirstFragment;
 import com.htxtdshopping.htxtd.frame.ui.four.fragment.FourFragment;
 import com.htxtdshopping.htxtd.frame.ui.second.fragment.SecondFragment;
 import com.htxtdshopping.htxtd.frame.ui.third.fragment.ThirdFragment;
-import com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout;
-import com.htxtdshopping.htxtd.frame.view.tablayout.listener.CustomTabEntity;
-import com.htxtdshopping.htxtd.frame.view.tablayout.listener.OnTabSelectListener;
-import com.htxtdshopping.htxtd.frame.view.tablayout.utils.TabEntity;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.listener.CustomTabEntity;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.listener.OnTabSelectListener;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.utils.TabEntity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.htxtdshopping.htxtd.frame.view.TitleBar
+    <com.htxtdshopping.htxtd.frame.widget.TitleBar
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_title_bar"
         app:tb_title="GenerateQrCode"/>

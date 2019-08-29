@@ -9,13 +9,13 @@
     android:orientation="vertical"
     tools:context=".ui.third.activity.ImagePreviewActivity">
 
-    <com.htxtdshopping.htxtd.frame.view.ZoomViewPager
+    <com.htxtdshopping.htxtd.frame.widget.ZoomViewPager
         android:id="@+id/zvp_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"/>
 
-    <com.htxtdshopping.htxtd.frame.view.TitleBar
+    <com.htxtdshopping.htxtd.frame.widget.TitleBar
         android:id="@+id/tb_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_title_bar"

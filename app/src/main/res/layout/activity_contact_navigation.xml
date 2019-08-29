@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.four.activity.ContactNavigationActivity">
 
-    <com.htxtdshopping.htxtd.frame.view.TitleBar
+    <com.htxtdshopping.htxtd.frame.widget.TitleBar
         android:id="@+id/tb_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_title_bar"
@@ -23,7 +23,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tb_title"/>
 
-    <com.htxtdshopping.htxtd.frame.view.WaveSideBarView
+    <com.htxtdshopping.htxtd.frame.widget.WaveSideBarView
         android:id="@+id/wsbv_letter"
         android:layout_width="match_parent"
         android:layout_height="0pt"

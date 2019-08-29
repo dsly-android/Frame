@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseActivity;
-import com.htxtdshopping.htxtd.frame.view.IndicatorView;
-import com.htxtdshopping.htxtd.frame.view.ShadowDrawable;
-import com.htxtdshopping.htxtd.frame.view.SwitchButton;
+import com.htxtdshopping.htxtd.frame.widget.IndicatorView;
+import com.htxtdshopping.htxtd.frame.widget.ShadowDrawable;
+import com.htxtdshopping.htxtd.frame.widget.SwitchButton;
 
 import butterknife.BindView;
 import me.jessyan.autosize.utils.AutoSizeUtils;

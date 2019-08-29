@@ -21,7 +21,7 @@
         android:textSize="34pt"
         tools:text="“圣诞老人”在山上抛洒积雪"/>
 
-    <com.htxtdshopping.htxtd.frame.view.CoverVideoPlayer
+    <com.htxtdshopping.htxtd.frame.widget.CoverVideoPlayer
         android:id="@+id/cvp_video"
         android:layout_width="match_parent"
         android:layout_height="405pt"

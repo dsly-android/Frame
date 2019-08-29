@@ -255,4 +255,10 @@
     <declare-styleable name="ThreePointLoadingView">
         <attr name="pointColor" format="color|reference"/>
     </declare-styleable>
+    <declare-styleable name="GradientTextView">
+        <attr name="isVertical" format="boolean"/>
+        <attr name="startColor" format="color"/>
+        <attr name="centerColor" format="color"/>
+        <attr name="endColor" format="color"/>
+    </declare-styleable>
 </resources>

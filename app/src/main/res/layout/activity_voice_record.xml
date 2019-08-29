@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <com.htxtdshopping.htxtd.frame.view.VoiceLineView
+    <com.htxtdshopping.htxtd.frame.widget.VoiceLineView
         android:id="@+id/vlv_wave"
         android:layout_width="match_parent"
         android:layout_height="200pt"

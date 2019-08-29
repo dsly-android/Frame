@@ -1,6 +1,7 @@
 package com.htxtdshopping.htxtd.frame.bean;
 
-import com.htxtdshopping.htxtd.frame.view.wheelview.interfaces.IPickerViewData;
+
+import com.htxtdshopping.htxtd.frame.widget.wheelview.interfaces.IPickerViewData;
 
 import java.util.ArrayList;
 import java.util.List;

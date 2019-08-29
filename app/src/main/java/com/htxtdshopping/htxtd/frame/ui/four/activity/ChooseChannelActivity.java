@@ -10,7 +10,7 @@ import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.bean.ChannelBean;
 import com.htxtdshopping.htxtd.frame.ui.four.adapter.ChooseChannelAdapter;
-import com.htxtdshopping.htxtd.frame.view.adapter.MultiItemBean;
+import com.htxtdshopping.htxtd.frame.widget.adapter.MultiItemBean;
 
 import java.util.ArrayList;
 import java.util.Collections;

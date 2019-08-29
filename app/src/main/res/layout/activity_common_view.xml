@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context=".ui.four.activity.CommonViewActivity">
 
-    <com.htxtdshopping.htxtd.frame.view.SwitchButton
+    <com.htxtdshopping.htxtd.frame.widget.SwitchButton
         android:id="@+id/sb_test1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.htxtdshopping.htxtd.frame.view.SwitchButton
+    <com.htxtdshopping.htxtd.frame.widget.SwitchButton
         android:id="@+id/sb_test2"
         android:layout_width="200pt"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         app:layout_constraintBottom_toBottomOf="@id/sb_test1"
         app:layout_constraintLeft_toRightOf="@id/sb_test1"/>
 
-    <com.htxtdshopping.htxtd.frame.view.MsgNumView
+    <com.htxtdshopping.htxtd.frame.widget.MsgNumView
         android:id="@+id/mnv_unread_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:mnv_number="9"/>
 
-    <com.htxtdshopping.htxtd.frame.view.IndicatorView
+    <com.htxtdshopping.htxtd.frame.widget.IndicatorView
         android:id="@+id/iv_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,4 +84,17 @@
         android:textSize="30pt"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sb_test1"/>
+
+    <com.htxtdshopping.htxtd.frame.widget.GradientTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:text="我的会员特权"
+        android:textSize="50px"
+        app:endColor="@color/_F8DFC4"
+        app:isVertical="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_shadow"
+        app:startColor="@color/_DBB292"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

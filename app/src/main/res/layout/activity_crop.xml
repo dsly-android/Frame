@@ -8,13 +8,13 @@
     android:orientation="vertical"
     tools:context=".ui.third.activity.CropActivity">
 
-    <com.htxtdshopping.htxtd.frame.view.TitleBar
+    <com.htxtdshopping.htxtd.frame.widget.TitleBar
         android:id="@+id/tb_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_title_bar"
         app:tb_title="裁剪"/>
 
-    <com.htxtdshopping.htxtd.frame.view.cropimage.CropImageLayout
+    <com.htxtdshopping.htxtd.frame.widget.cropimage.CropImageLayout
         android:id="@+id/cil_crop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

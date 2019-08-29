@@ -11,7 +11,7 @@ import com.htxtdshopping.htxtd.frame.bean.ContactBean;
 import com.htxtdshopping.htxtd.frame.decoration.PinnedHeaderDecoration;
 import com.htxtdshopping.htxtd.frame.ui.four.adapter.ContactNavigationAdapter;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
-import com.htxtdshopping.htxtd.frame.view.WaveSideBarView;
+import com.htxtdshopping.htxtd.frame.widget.WaveSideBarView;
 
 import java.util.Collections;
 import java.util.Comparator;

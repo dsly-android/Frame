@@ -29,7 +29,7 @@ import com.htxtdshopping.htxtd.frame.network.STSProvider;
 import com.htxtdshopping.htxtd.frame.notification.NotificationChannels;
 import com.htxtdshopping.htxtd.frame.ui.second.activity.UpgradeActivity;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
-import com.htxtdshopping.htxtd.frame.view.refresh.NewsRefreshHeader;
+import com.htxtdshopping.htxtd.frame.widget.refresh.NewsRefreshHeader;
 import com.liulishuo.okdownload.core.dispatcher.DownloadDispatcher;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;

@@ -17,8 +17,8 @@ import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.constant.Constants;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
-import com.htxtdshopping.htxtd.frame.view.TitleBar;
-import com.htxtdshopping.htxtd.frame.view.cropimage.CropImageLayout;
+import com.htxtdshopping.htxtd.frame.widget.TitleBar;
+import com.htxtdshopping.htxtd.frame.widget.cropimage.CropImageLayout;
 
 import java.io.File;
 

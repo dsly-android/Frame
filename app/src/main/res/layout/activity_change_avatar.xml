@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".ui.third.activity.ChangeAvatarActivity">
 
-    <com.htxtdshopping.htxtd.frame.view.TitleBar
+    <com.htxtdshopping.htxtd.frame.widget.TitleBar
         android:layout_width="match_parent"
         app:tb_title="选择图片"
         android:layout_height="@dimen/height_title_bar"/>

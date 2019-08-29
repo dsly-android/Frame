@@ -7,12 +7,12 @@ import android.view.View;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.fragment.SimpleCardFragment;
-import com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout;
-import com.htxtdshopping.htxtd.frame.view.tablayout.listener.CustomTabEntity;
-import com.htxtdshopping.htxtd.frame.view.tablayout.listener.OnTabSelectListener;
-import com.htxtdshopping.htxtd.frame.view.tablayout.utils.TabEntity;
-import com.htxtdshopping.htxtd.frame.view.tablayout.utils.UnreadMsgUtils;
-import com.htxtdshopping.htxtd.frame.view.tablayout.widget.MsgView;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.listener.CustomTabEntity;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.listener.OnTabSelectListener;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.utils.TabEntity;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.utils.UnreadMsgUtils;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.widget.MsgView;
 
 import java.util.ArrayList;
 import java.util.Random;

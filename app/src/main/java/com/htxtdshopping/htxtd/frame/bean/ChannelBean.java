@@ -1,7 +1,7 @@
 package com.htxtdshopping.htxtd.frame.bean;
 
 
-import com.htxtdshopping.htxtd.frame.view.adapter.MultiItemBean;
+import com.htxtdshopping.htxtd.frame.widget.adapter.MultiItemBean;
 
 /**
  * @author 陈志鹏

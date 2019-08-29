@@ -14,8 +14,8 @@ import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.ImagePageAdapter;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageItem;
-import com.htxtdshopping.htxtd.frame.view.TitleBar;
-import com.htxtdshopping.htxtd.frame.view.ZoomViewPager;
+import com.htxtdshopping.htxtd.frame.widget.TitleBar;
+import com.htxtdshopping.htxtd.frame.widget.ZoomViewPager;
 
 import java.util.ArrayList;
 

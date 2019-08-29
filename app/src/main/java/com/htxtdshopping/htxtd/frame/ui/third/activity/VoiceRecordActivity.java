@@ -10,7 +10,7 @@ import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.utils.VoiceRecordManager;
-import com.htxtdshopping.htxtd.frame.view.VoiceLineView;
+import com.htxtdshopping.htxtd.frame.widget.VoiceLineView;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 

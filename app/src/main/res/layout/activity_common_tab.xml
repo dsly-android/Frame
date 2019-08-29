@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
             android:id="@+id/tl_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="168pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
             android:id="@+id/tl_2"
             android:layout_width="match_parent"
             android:layout_height="108pt"
@@ -51,7 +51,7 @@
             android:layout_height="168pt">
         </FrameLayout>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
             android:id="@+id/tl_3"
             android:layout_width="match_parent"
             android:layout_height="96pt"
@@ -70,7 +70,7 @@
             tl:tl_underline_gravity="TOP"
             tl:tl_underline_height="2pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
             android:id="@+id/tl_4"
             android:layout_width="match_parent"
             android:layout_height="96pt"
@@ -80,7 +80,7 @@
             tl:tl_textBold="SELECT"
             tl:tl_textsize="28pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
             android:id="@+id/tl_5"
             android:layout_width="match_parent"
             android:layout_height="96pt"
@@ -92,7 +92,7 @@
             tl:tl_textBold="BOTH"
             tl:tl_textsize="28pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
             android:id="@+id/tl_6"
             android:layout_width="match_parent"
             android:layout_height="96pt"
@@ -103,7 +103,7 @@
             tl:tl_indicator_width="20pt"
             tl:tl_textsize="28pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
             android:id="@+id/tl_7"
             android:layout_width="match_parent"
             android:layout_height="96pt"
@@ -116,7 +116,7 @@
             tl:tl_indicator_width="20pt"
             tl:tl_textsize="28pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.CommonTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
             android:id="@+id/tl_8"
             android:layout_width="match_parent"
             android:layout_height="96pt"

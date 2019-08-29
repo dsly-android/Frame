@@ -8,9 +8,9 @@ import android.widget.Toast;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.fragment.SimpleCardFragment;
-import com.htxtdshopping.htxtd.frame.view.tablayout.SlidingTabLayout;
-import com.htxtdshopping.htxtd.frame.view.tablayout.listener.OnTabSelectListener;
-import com.htxtdshopping.htxtd.frame.view.tablayout.widget.MsgView;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.SlidingTabLayout;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.listener.OnTabSelectListener;
+import com.htxtdshopping.htxtd.frame.widget.tablayout.widget.MsgView;
 
 import java.util.ArrayList;
 

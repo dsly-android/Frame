@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.SegmentTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.SegmentTabLayout
             android:id="@+id/tl_1"
             android:layout_width="wrap_content"
             android:layout_height="64pt"
@@ -23,7 +23,7 @@
             tl:tl_indicator_corner_radius="16pt"
             tl:tl_tab_padding="40pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.SegmentTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.SegmentTabLayout
             android:id="@+id/tl_2"
             android:layout_width="wrap_content"
             android:layout_height="72pt"
@@ -36,7 +36,7 @@
             tl:tl_indicator_color="#009688"
             tl:tl_tab_padding="40pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.SegmentTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.SegmentTabLayout
             android:id="@+id/tl_3"
             android:layout_width="match_parent"
             android:layout_height="72pt"
@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="168pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.SegmentTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.SegmentTabLayout
             android:id="@+id/tl_4"
             android:layout_width="wrap_content"
             android:layout_height="72pt"
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="168pt"/>
 
-        <com.htxtdshopping.htxtd.frame.view.tablayout.SegmentTabLayout
+        <com.htxtdshopping.htxtd.frame.widget.tablayout.SegmentTabLayout
             android:id="@+id/tl_5"
             android:layout_width="match_parent"
             android:layout_height="72pt"

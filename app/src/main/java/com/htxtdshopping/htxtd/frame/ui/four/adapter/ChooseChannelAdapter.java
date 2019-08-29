@@ -4,7 +4,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.bean.ChannelBean;
-import com.htxtdshopping.htxtd.frame.view.adapter.BaseMultiItemDraggableAdapter;
+import com.htxtdshopping.htxtd.frame.widget.adapter.BaseMultiItemDraggableAdapter;
 
 import java.util.ArrayList;
 

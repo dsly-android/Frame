@@ -24,7 +24,7 @@ import com.htxtdshopping.htxtd.frame.utils.local_data.CameraItem;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageDataUtils;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageFolder;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageItem;
-import com.htxtdshopping.htxtd.frame.view.TitleBar;
+import com.htxtdshopping.htxtd.frame.widget.TitleBar;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 

@@ -11,7 +11,7 @@ import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.bean.NewsPictureBean;
 import com.htxtdshopping.htxtd.frame.bean.NewsTextBean;
 import com.htxtdshopping.htxtd.frame.bean.NewsVideoBean;
-import com.htxtdshopping.htxtd.frame.view.CoverVideoPlayer;
+import com.htxtdshopping.htxtd.frame.widget.CoverVideoPlayer;
 import com.shuyu.gsyvideoplayer.listener.GSYSampleCallBack;
 
 import java.util.ArrayList;

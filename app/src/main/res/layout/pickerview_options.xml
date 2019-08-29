@@ -16,19 +16,19 @@
         android:background="@android:color/white"
         android:orientation="horizontal">
 
-        <com.htxtdshopping.htxtd.frame.view.wheelview.view.WheelView
+        <com.htxtdshopping.htxtd.frame.widget.wheelview.view.WheelView
             android:id="@+id/options1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <com.htxtdshopping.htxtd.frame.view.wheelview.view.WheelView
+        <com.htxtdshopping.htxtd.frame.widget.wheelview.view.WheelView
             android:id="@+id/options2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <com.htxtdshopping.htxtd.frame.view.wheelview.view.WheelView
+        <com.htxtdshopping.htxtd.frame.widget.wheelview.view.WheelView
             android:id="@+id/options3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,6 +1,7 @@
 package com.htxtdshopping.htxtd.frame.bean;
 
-import com.htxtdshopping.htxtd.frame.view.wheelview.interfaces.IPickerViewData;
+
+import com.htxtdshopping.htxtd.frame.widget.wheelview.interfaces.IPickerViewData;
 
 /**
  * Created by Sai on 15/11/22.

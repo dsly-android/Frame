@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import com.htxtdshopping.htxtd.frame.utils.GlideUtils;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageItem;
-import com.htxtdshopping.htxtd.frame.view.photoview.PhotoView;
+import com.htxtdshopping.htxtd.frame.widget.photoview.PhotoView;
 
 import java.util.ArrayList;
 

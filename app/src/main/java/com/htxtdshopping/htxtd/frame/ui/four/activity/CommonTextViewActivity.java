@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseActivity;
-import com.htxtdshopping.htxtd.frame.view.CommonTextView;
+import com.htxtdshopping.htxtd.frame.widget.CommonTextView;
 
 import butterknife.BindView;
 
