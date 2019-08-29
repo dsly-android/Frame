@@ -13,15 +13,20 @@ import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
 
 import org.simple.eventbus.EventBus;
 
+import java.lang.reflect.ParameterizedType;
+
+import javax.inject.Inject;
+
 import androidx.annotation.Nullable;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import dagger.android.AndroidInjection;
 
 /**
  * @author 陈志鹏
  * @date 2018/7/29
  */
-public abstract class BaseActivity extends RxAppCompatActivity implements ILifeCycle, IView {
+public abstract class BaseActivity<P extends BasePresenter> extends RxAppCompatActivity implements ILifeCycle, IView {
 
     private Unbinder mUnbinder;
     /**
@@ -30,8 +35,17 @@ public abstract class BaseActivity extends RxAppCompatActivity implements ILifeC
     private long lastClick = 0;
     private LoadingDialog mLoadingDialog;
 
+    @Inject
+    protected P mPresenter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        try {
+            ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+            AndroidInjection.inject(this);
+        }catch (Exception e){
+
+        }
         super.onCreate(savedInstanceState);
         EventBus.getDefault().registerSticky(this);
         if (getLayoutId() != 0) {
@@ -52,7 +66,9 @@ public abstract class BaseActivity extends RxAppCompatActivity implements ILifeC
 
     @Override
     public void setMvpView(IView view) {
-
+        if (mPresenter != null) {
+            mPresenter.setView(view);
+        }
     }
 
     protected boolean isFitWindow() {
@@ -114,9 +130,13 @@ public abstract class BaseActivity extends RxAppCompatActivity implements ILifeC
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
+        }
+        mPresenter = null;
         if (mUnbinder != null && mUnbinder != Unbinder.EMPTY) {
             mUnbinder.unbind();
         }
-        this.mUnbinder = null;
+        mUnbinder = null;
     }
 }

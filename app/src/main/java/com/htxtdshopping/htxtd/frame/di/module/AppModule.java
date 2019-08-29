@@ -2,6 +2,7 @@ package com.htxtdshopping.htxtd.frame.di.module;
 
 import javax.inject.Singleton;
 
+import androidx.annotation.Nullable;
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,7 +15,8 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public String aaa() {
+    @Nullable
+    public String aaa(){
         return "";
     }
 }

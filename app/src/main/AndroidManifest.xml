@@ -66,6 +66,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.third.activity.HandlerActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.first.activity.ObjectBoxActivity"
             android:screenOrientation="portrait"/>
         <activity

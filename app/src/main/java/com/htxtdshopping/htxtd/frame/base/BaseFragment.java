@@ -1,5 +1,6 @@
 package com.htxtdshopping.htxtd.frame.base;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,19 +11,37 @@ import com.trello.rxlifecycle3.components.support.RxFragment;
 
 import org.simple.eventbus.EventBus;
 
+import java.lang.reflect.ParameterizedType;
+
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import dagger.android.support.AndroidSupportInjection;
 
 /**
  * @author 陈志鹏
  * @date 2018/7/29
  */
-public abstract class BaseFragment extends RxFragment implements ILifeCycle, IView {
+public abstract class BaseFragment<P extends BasePresenter> extends RxFragment implements ILifeCycle, IView {
 
     private Unbinder mUnbinder;
     private long lastClick = 0;
+    @Inject
+    protected P mPresenter;
+
+    @Override
+    public void onAttach(Activity activity) {
+        try {
+            ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+            AndroidSupportInjection.inject(this);
+        } catch (Exception e) {
+
+        }
+        super.onAttach(activity);
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +70,9 @@ public abstract class BaseFragment extends RxFragment implements ILifeCycle, IVi
 
     @Override
     public void setMvpView(IView view) {
-
+        if (mPresenter != null) {
+            mPresenter.setView(view);
+        }
     }
 
     /**
@@ -108,5 +129,9 @@ public abstract class BaseFragment extends RxFragment implements ILifeCycle, IVi
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
+        }
+        mPresenter = null;
     }
 }

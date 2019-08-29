@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
  * @author 陈志鹏
  * @date 2018/9/7
  */
-public abstract class BaseLazyFragment extends BaseFragment {
+public abstract class BaseLazyFragment<P extends BasePresenter> extends BaseFragment<P> {
 
     private static final String INVISIBLE_WHEN_LEAVE = "invisible_when_leave";
     private boolean mInvisibleWhenLeave;

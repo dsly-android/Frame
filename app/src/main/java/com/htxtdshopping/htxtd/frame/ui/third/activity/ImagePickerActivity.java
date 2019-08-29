@@ -10,14 +10,13 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.SDCardUtils;
-import com.blankj.utilcode.util.ScreenUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.constant.Constants;
 import com.htxtdshopping.htxtd.frame.decoration.GridDividerItemDecoration;
-import com.htxtdshopping.htxtd.frame.popup_window.ImageFolderPopupWindow;
+import com.htxtdshopping.htxtd.frame.popup.ImageFolderPopupWindow;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.ImagePickerAdapter;
 import com.htxtdshopping.htxtd.frame.utils.IntentUtils;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
@@ -228,8 +227,7 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
                             mRvContent.getHeight(), mImageFolders, this);
                 }
                 if (!mFolderPopupWindow.isShowing()) {
-                    mFolderPopupWindow.showAtLocation(mLlFooter, Gravity.BOTTOM, 0,
-                            ScreenUtils.getScreenHeight() - mLlFooter.getTop());
+                    mFolderPopupWindow.showAtLocation(mLlFooter, Gravity.TOP, 0, mTbTitle.getBottom());
                 } else {
                     mFolderPopupWindow.dismiss();
                 }
@@ -319,15 +317,6 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
                 break;
             default:
                 break;
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mFolderPopupWindow != null && mFolderPopupWindow.isShowing()) {
-            mFolderPopupWindow.dismiss();
-        } else {
-            super.onBackPressed();
         }
     }
 }

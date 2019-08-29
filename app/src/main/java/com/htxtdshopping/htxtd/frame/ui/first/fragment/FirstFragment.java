@@ -9,7 +9,7 @@ import android.view.View;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseLazyMvpFragment;
+import com.htxtdshopping.htxtd.frame.base.BaseLazyFragment;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.BannerActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.GenerateQrCodeActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.ObjectBoxActivity;
@@ -32,7 +32,7 @@ import io.reactivex.functions.Consumer;
  * @author 陈志鹏
  * @date 2018/9/7
  */
-public class FirstFragment extends BaseLazyMvpFragment<FirstPresenter> implements IFirstView {
+public class FirstFragment extends BaseLazyFragment<FirstPresenter> implements IFirstView {
 
     private static final int KEY_SCAN_QR_CODE = 1;
     @BindView(R.id.v_bar)

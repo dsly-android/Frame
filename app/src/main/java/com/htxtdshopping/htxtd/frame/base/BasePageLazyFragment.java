@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
  * @author 陈志鹏
  * @date 2018/9/9
  */
-public abstract class BasePageLazyFragment extends BaseFragment {
+public abstract class BasePageLazyFragment<P extends BasePresenter> extends BaseFragment<P> {
 
     /**
      * 是否第一次加载

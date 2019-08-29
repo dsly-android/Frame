@@ -4,7 +4,6 @@ import com.htxtdshopping.htxtd.frame.di.scope.ActivityScope;
 import com.htxtdshopping.htxtd.frame.di.scope.FragmentScope;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.RefreshAndLoadMoreActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.fragment.FirstFragment;
-import com.htxtdshopping.htxtd.frame.ui.other.activity.MainActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -15,10 +14,6 @@ import dagger.android.ContributesAndroidInjector;
  */
 @Module
 public abstract class BuildersModule {
-
-    @ActivityScope
-    @ContributesAndroidInjector
-    public abstract MainActivity mainActivityInject();
 
     @FragmentScope
     @ContributesAndroidInjector

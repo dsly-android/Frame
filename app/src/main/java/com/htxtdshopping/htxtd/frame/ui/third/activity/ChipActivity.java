@@ -7,8 +7,6 @@ import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 
 public class ChipActivity extends BaseFitsWindowActivity {
 
-
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_chip;

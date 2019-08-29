@@ -11,7 +11,7 @@ import com.blankj.utilcode.util.ActivityUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowMvpActivity;
+import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.base.CustomizeLoadMoreView;
 import com.htxtdshopping.htxtd.frame.bean.NewsVideoBean;
 import com.htxtdshopping.htxtd.frame.decoration.LinearDividerItemDecoration;
@@ -35,7 +35,7 @@ import me.jessyan.autosize.utils.AutoSizeUtils;
 /**
  * @author chenzhipeng
  */
-public class RefreshAndLoadMoreActivity extends BaseFitsWindowMvpActivity<RefreshAndLoadMorePresenter> implements IRefreshAndLoadMoreView {
+public class RefreshAndLoadMoreActivity extends BaseFitsWindowActivity<RefreshAndLoadMorePresenter> implements IRefreshAndLoadMoreView {
 
     @BindView(R.id.nrl_refresh)
     NewsRefreshLayout mNrlRefresh;

@@ -1,9 +1,10 @@
-package com.htxtdshopping.htxtd.frame.popup_window;
+package com.htxtdshopping.htxtd.frame.popup;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -39,12 +40,13 @@ public class ImageFolderPopupWindow extends BasePopupWindow implements View.OnCl
     public ImageFolderPopupWindow(Context context, int height, List<ImageFolder> imageFolders,
                                   OnImageFolderSelectedListener listener) {
         super(context, ViewGroup.LayoutParams.MATCH_PARENT, height);
+        setFocusable(true);
+
         mImageFolders = imageFolders;
         mListener = listener;
         mSelectedPos = 0;
-        initView();
-        initEvent();
-        initData();
+
+        init();
     }
 
     @Override
@@ -52,7 +54,8 @@ public class ImageFolderPopupWindow extends BasePopupWindow implements View.OnCl
         return R.layout.popup_image_folder;
     }
 
-    private void initView() {
+    @Override
+    public void initView(Bundle savedInstanceState) {
         mVBgColor = mRootView.findViewById(R.id.v_bg_color);
         mRvContent = mRootView.findViewById(R.id.rv_content);
 
@@ -63,7 +66,8 @@ public class ImageFolderPopupWindow extends BasePopupWindow implements View.OnCl
         mRvContent.setAdapter(mAdapter = new ImageFolderAdapter());
     }
 
-    private void initEvent() {
+    @Override
+    public void initEvent() {
         mVBgColor.setOnClickListener(this);
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
@@ -81,7 +85,8 @@ public class ImageFolderPopupWindow extends BasePopupWindow implements View.OnCl
         });
     }
 
-    private void initData() {
+    @Override
+    public void initData() {
         mAdapter.setSelectedPos(mSelectedPos);
         mAdapter.setNewData(mImageFolders);
     }

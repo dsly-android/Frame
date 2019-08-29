@@ -11,6 +11,7 @@ import com.htxtdshopping.htxtd.frame.base.AppContext;
 import com.htxtdshopping.htxtd.frame.base.BaseLazyFragment;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.ChangeAvatarActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.GridActivity;
+import com.htxtdshopping.htxtd.frame.ui.third.activity.HandlerActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.LifecycleActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.ListActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.LoginActivity;
@@ -58,7 +59,7 @@ public class ThirdFragment extends BaseLazyFragment {
 
     @OnClick({R.id.btn_grid, R.id.btn_list, R.id.btn_record, R.id.btn_popup, R.id.btn_image_picker,
             R.id.btn_notification, R.id.btn_service, R.id.btn_login, R.id.btn_design, R.id.btn_version_update,
-            R.id.btn_lifecycle})
+            R.id.btn_lifecycle,R.id.btn_handler})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_grid:
@@ -93,6 +94,9 @@ public class ThirdFragment extends BaseLazyFragment {
                 break;
             case R.id.btn_lifecycle:
                 ActivityUtils.startActivity(LifecycleActivity.class);
+                break;
+            case R.id.btn_handler:
+                ActivityUtils.startActivity(HandlerActivity.class);
                 break;
             default:
                 break;

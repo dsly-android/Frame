@@ -122,6 +122,7 @@ public class ObjectBoxActivity extends BaseFitsWindowActivity {
         RxBoxStore.<User>observable(AppContext.getInstance().getBoxStore())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .compose(bindToLifecycle())
                 .subscribe(new Consumer<Class>() {
                     @Override
                     public void accept(Class aClass) throws Exception {
@@ -133,6 +134,7 @@ public class ObjectBoxActivity extends BaseFitsWindowActivity {
         RxQuery.observable(query)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .compose(bindToLifecycle())
                 .subscribe(new Consumer<List<User>>() {
                     @Override
                     public void accept(List<User> users) throws Exception {
@@ -296,5 +298,6 @@ public class ObjectBoxActivity extends BaseFitsWindowActivity {
     protected void onDestroy() {
         super.onDestroy();
         mList.cancel();
+        getNoteLiveData().removeObservers(this);
     }
 }
