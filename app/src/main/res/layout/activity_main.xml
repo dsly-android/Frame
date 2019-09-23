@@ -13,15 +13,9 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout
-        android:id="@+id/ctl_tab"
+    <com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.PageNavigationView
+        android:id="@+id/pnv_tab"
         android:layout_width="match_parent"
         android:layout_height="96pt"
-        android:background="@android:color/white"
-        app:tl_iconHeight="50pt"
-        app:tl_iconWidth="50pt"
-        app:tl_textSelectColor="@color/_81D8CF"
-        app:tl_textSelectSize="24pt"
-        app:tl_textUnselectColor="@android:color/black"
-        app:tl_textUnselectSize="24pt"/>
+        android:background="@android:color/white"/>
 </LinearLayout>

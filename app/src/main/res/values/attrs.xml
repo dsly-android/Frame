@@ -241,6 +241,16 @@
         <attr name="mnv_backgroundColor" format="color"/>
         <attr name="mnv_paddingLeftAndRight" format="dimension"/>
     </declare-styleable>
+    <declare-styleable name="UnreadMsgView">
+        <attr name="umv_number" format="integer"/>
+        <attr name="umv_backgroundColor" format="color"/>
+        <attr name="umv_paddingLeftAndRight" format="dimension"/>
+        <attr name="umv_style" format="enum">
+            <enum name="dot" value="0"/>
+            <enum name="number" value="1"/>
+            <enum name="gone" value="2"/>
+        </attr>
+    </declare-styleable>
     <declare-styleable name="IndicatorView">
         <attr name="iv_indicatorRadius" format="dimension"/>
         <attr name="iv_indicatorMargin" format="dimension"/>
@@ -260,5 +270,21 @@
         <attr name="startColor" format="color"/>
         <attr name="centerColor" format="color"/>
         <attr name="endColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="ClearEditText">
+        <attr name="cet_drawableLeft" format="reference"/>
+        <attr name="cet_hint" format="string"/>
+        <attr name="cet_text" format="string"/>
+        <attr name="cet_textColor" format="color"/>
+        <attr name="cet_hintTextColor" format="color"/>
+        <attr name="cet_textSize" format="dimension"/>
+        <attr name="cet_underLineColor" format="color"/>
+        <attr name="cet_underLineVisible" format="integer"/>
+        <attr name="cet_drawableClose" format="reference"/>
+        <attr name="cet_paddingLeftAndRight" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="PageNavigationView">
+        <attr name="NavigationPaddingTop" format="dimension"/>
+        <attr name="NavigationPaddingBottom" format="dimension"/>
     </declare-styleable>
 </resources>

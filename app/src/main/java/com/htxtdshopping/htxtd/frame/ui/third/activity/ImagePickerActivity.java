@@ -149,7 +149,7 @@ public class ImagePickerActivity extends BaseFitsWindowActivity implements Image
                 }
             }
         });
-        mTbTitle.setOnRightImageClickListener(new View.OnClickListener() {
+        mTbTitle.setOnRightTextClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setResult();

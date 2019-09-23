@@ -36,25 +36,19 @@ public class MsgNumView extends AppCompatTextView {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.MsgNumView);
         mNumber = typedArray.getInteger(R.styleable.MsgNumView_mnv_number, 0);
         mBackgroundColor = typedArray.getColor(R.styleable.MsgNumView_mnv_backgroundColor, ContextCompat.getColor(getContext(), android.R.color.holo_red_light));
-        mPaddingLeftAndRight = typedArray.getDimensionPixelSize(R.styleable.MsgNumView_mnv_paddingLeftAndRight, AutoSizeUtils.pt2px(getContext(), 10));
+        mPaddingLeftAndRight = typedArray.getDimensionPixelSize(R.styleable.MsgNumView_mnv_paddingLeftAndRight, AutoSizeUtils.pt2px(getContext(), 5));
         typedArray.recycle();
 
-        setBackground();
         setPadding(mPaddingLeftAndRight, 0, mPaddingLeftAndRight, 0);
-        setNumber(mNumber);
+        showNumber(mNumber);
     }
 
-    public void setBackground() {
-        float textSize = getTextSize();
-        int height = (int) (textSize + AutoSizeUtils.pt2px(getContext(), 10));
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadius(height / 2);
-        drawable.setColor(mBackgroundColor);
-        drawable.setSize(height, height);
-        setBackground(drawable);
+    public void setBgColor(int color) {
+        mBackgroundColor = color;
+        setBackground();
     }
 
-    public void setNumber(int number) {
+    public void showNumber(int number) {
         mNumber = number;
         if (mNumber <= 0) {
             setVisibility(GONE);
@@ -65,5 +59,16 @@ public class MsgNumView extends AppCompatTextView {
             setText(mNumber + "");
             setVisibility(VISIBLE);
         }
+        setBackground();
+    }
+
+    private void setBackground() {
+        float textSize = getTextSize();
+        int height = (int) (textSize + AutoSizeUtils.pt2px(getContext(), 10));
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadius(height / 2);
+        drawable.setColor(mBackgroundColor);
+        drawable.setSize(height, height);
+        setBackground(drawable);
     }
 }

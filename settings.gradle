@@ -1,1 +1,1 @@
-include ':app', ':androideventbus', ':banner'
+include ':app', ':banner'
