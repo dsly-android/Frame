@@ -1,0 +1,46 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="96pt"
+    android:layout_marginTop="40pt">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2pt"
+        android:background="#eee"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2pt"
+        android:background="#fff"/>
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="40pt"
+        android:layout_height="40pt"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="14pt"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="8pt"
+        android:singleLine="true"
+        android:textSize="24pt"/>
+
+    <com.htxtdshopping.htxtd.frame.widget.UnreadMsgView
+        android:id="@+id/messages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6pt"
+        android:translationX="24pt"/>
+</FrameLayout>
+
+
+
+
+

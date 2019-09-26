@@ -80,6 +80,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.third.activity.FlowWindowActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.center.fragment.CenterActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.third.activity.HandlerActivity"
             android:screenOrientation="portrait"/>
         <activity

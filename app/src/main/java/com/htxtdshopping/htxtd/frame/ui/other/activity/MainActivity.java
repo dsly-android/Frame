@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.FragmentUtils;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseActivity;
+import com.htxtdshopping.htxtd.frame.ui.center.fragment.CenterFragment;
 import com.htxtdshopping.htxtd.frame.ui.first.fragment.FirstFragment;
 import com.htxtdshopping.htxtd.frame.ui.four.fragment.FourFragment;
 import com.htxtdshopping.htxtd.frame.ui.second.fragment.SecondFragment;
@@ -14,7 +15,8 @@ import com.htxtdshopping.htxtd.frame.ui.third.fragment.ThirdFragment;
 import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.NavigationController;
 import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.PageNavigationView;
 import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.item.BaseTabItem;
-import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.item.NormalItemView;
+import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.item.SpecialTabItemView;
+import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.item.SpecialTabRoundItemView;
 import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.listener.SimpleTabItemSelectedListener;
 
 import java.util.ArrayList;
@@ -33,13 +35,10 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.pnv_tab)
     PageNavigationView mPnvTab;
 
-    private String[] mTitles;
-    private int[] mIconUnSelectIds;
-    private int[] mIconSelectIds;
-
     private List<Fragment> mFragments;
     private FirstFragment firstFragment;
     private SecondFragment secondFragment;
+    private CenterFragment centerFragment;
     private ThirdFragment thirdFragment;
     private FourFragment fourFragment;
     private NavigationController mController;
@@ -56,6 +55,7 @@ public class MainActivity extends BaseActivity {
         mController = mPnvTab.custom()
                 .addItem(newItem(R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round, "框架"))
                 .addItem(newItem(R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round, "第三方"))
+                .addItem(newRoundItem(R.drawable.icon_center, R.drawable.icon_center))
                 .addItem(newItem(R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round, "系统"))
                 .addItem(newItem(R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round, "控件"))
                 .build();
@@ -63,22 +63,26 @@ public class MainActivity extends BaseActivity {
         if (savedInstanceState == null) {
             firstFragment = new FirstFragment();
             secondFragment = new SecondFragment();
+            centerFragment = new CenterFragment();
             thirdFragment = new ThirdFragment();
             fourFragment = new FourFragment();
             mFragments = new ArrayList<>();
             mFragments.add(firstFragment);
             mFragments.add(secondFragment);
+            mFragments.add(centerFragment);
             mFragments.add(thirdFragment);
             mFragments.add(fourFragment);
             FragmentUtils.add(getSupportFragmentManager(), mFragments, R.id.fl_container, 0);
         } else {
             firstFragment = (FirstFragment) FragmentUtils.findFragment(getSupportFragmentManager(), FirstFragment.class);
             secondFragment = (SecondFragment) FragmentUtils.findFragment(getSupportFragmentManager(), SecondFragment.class);
+            centerFragment = (CenterFragment) FragmentUtils.findFragment(getSupportFragmentManager(),CenterFragment.class);
             thirdFragment = (ThirdFragment) FragmentUtils.findFragment(getSupportFragmentManager(), ThirdFragment.class);
             fourFragment = (FourFragment) FragmentUtils.findFragment(getSupportFragmentManager(), FourFragment.class);
             mFragments = new ArrayList<>();
             mFragments.add(firstFragment);
             mFragments.add(secondFragment);
+            mFragments.add(centerFragment);
             mFragments.add(thirdFragment);
             mFragments.add(fourFragment);
         }
@@ -99,15 +103,26 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    //创建一个Item
+    /**
+     * 正常tab
+     */
     private BaseTabItem newItem(int drawable, int checkedDrawable, String text) {
-        NormalItemView normalItemView = new NormalItemView(this);
-        normalItemView.initialize(drawable, checkedDrawable, text);
-        normalItemView.setTextDefaultColor(Color.BLACK);
-        normalItemView.setTextCheckedColor(getResources().getColor(R.color._81D8CF));
-        normalItemView.setTextSize(AutoSizeUtils.pt2px(this, 24));
-        normalItemView.setUnreadMsgTextSize(AutoSizeUtils.pt2px(this,18));
-        return normalItemView;
+        SpecialTabItemView itemView = new SpecialTabItemView(this);
+        itemView.initialize(drawable, checkedDrawable, text);
+        itemView.setTextDefaultColor(Color.BLACK);
+        itemView.setTextCheckedColor(getResources().getColor(R.color._81D8CF));
+        itemView.setTextSize(AutoSizeUtils.pt2px(this, 24));
+        itemView.setUnreadMsgTextSize(AutoSizeUtils.pt2px(this, 18));
+        return itemView;
+    }
+
+    /**
+     * 圆形tab
+     */
+    private BaseTabItem newRoundItem(int drawable, int checkedDrawable) {
+        SpecialTabRoundItemView itemView = new SpecialTabRoundItemView(this);
+        itemView.initialize(drawable, checkedDrawable, "");
+        return itemView;
     }
 
     @Override

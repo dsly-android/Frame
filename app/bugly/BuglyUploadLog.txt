@@ -786,3 +786,11 @@ file=/Users/chenzhipeng/移动硬盘/android/框架/Frame/app/build/outputs/mapp
 sha1=88f03c52a0426093ea887813c724e9208e538bc4
 appId=38552d428b
 
+file=/Users/chenzhipeng/移动硬盘/android/框架/Frame/app/build/outputs/mapping/debug/mapping.txt
+sha1=1674c11e2cbdf645ed91f2a1f58da1dc47439b7a
+appId=38552d428b
+
+file=/Users/chenzhipeng/移动硬盘/android/框架/Frame/app/build/outputs/mapping/release/mapping.txt
+sha1=e806319e6c2d8e65127b6b609234dff247988708
+appId=38552d428b
+
