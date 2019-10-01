@@ -19,5 +19,5 @@
     <dimen name="material_bottom_navigation_item_max_width">192pt</dimen>
     <dimen name="material_bottom_navigation_item_min_width">112pt</dimen>
     <dimen name="material_bottom_navigation_margin">16pt</dimen>
-    <dimen name="material_bottom_navigation_text_size">24pt</dimen>
+    <dimen name="material_bottom_navigation_text_size">24sp</dimen>
 </resources>

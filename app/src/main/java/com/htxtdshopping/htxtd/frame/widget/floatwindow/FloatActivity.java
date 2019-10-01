@@ -23,7 +23,6 @@ public class FloatActivity extends Activity {
     private static List<PermissionListener> mPermissionListenerList;
     private static PermissionListener mPermissionListener;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +37,6 @@ public class FloatActivity extends Activity {
         intent.setData(Uri.parse("package:" + getPackageName()));
         startActivityForResult(intent, 756232212);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

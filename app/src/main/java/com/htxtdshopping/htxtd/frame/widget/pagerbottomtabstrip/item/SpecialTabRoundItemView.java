@@ -3,7 +3,6 @@ package com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.item;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -139,7 +138,7 @@ public class SpecialTabRoundItemView extends BaseTabItem {
      * @param textSize
      */
     public void setTextSize(int textSize) {
-        mTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+        mTitle.setTextSize(textSize);
     }
 
     /**

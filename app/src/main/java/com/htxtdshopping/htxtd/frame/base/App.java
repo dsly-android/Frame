@@ -146,10 +146,11 @@ public class App extends DaggerApplication {
         //当 App 中出现多进程, 并且您需要适配所有的进程, 就需要在 App 初始化时调用 initCompatMultiProcess()
         AutoSize.initCompatMultiProcess(this);
         AutoSizeConfig.getInstance().setLog(false);
+        AutoSizeConfig.getInstance().setExcludeFontScale(true);
         AutoSizeConfig.getInstance().getUnitsManager()
                 .setSupportSubunits(Subunits.PT)
                 .setSupportDP(false)
-                .setSupportSP(false);
+                .setSupportSP(true);
     }
 
     private void initLog() {

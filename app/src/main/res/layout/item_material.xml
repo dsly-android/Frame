@@ -21,8 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textSize="@dimen/material_bottom_navigation_text_size"
-            tools:text="123"/>
+            android:textSize="@dimen/material_bottom_navigation_text_size"/>
     </com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.internal.BaselineLayout>
 
     <com.htxtdshopping.htxtd.frame.widget.UnreadMsgView

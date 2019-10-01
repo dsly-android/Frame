@@ -15,6 +15,6 @@
     <com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.PageNavigationView
         android:id="@+id/pnv_tab"
         android:layout_width="match_parent"
-        android:layout_height="136pt"
+        android:layout_height="138pt"
         android:layout_gravity="bottom"/>
 </FrameLayout>

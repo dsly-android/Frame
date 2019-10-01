@@ -29,7 +29,7 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="8pt"
         android:singleLine="true"
-        android:textSize="24pt"/>
+        android:textSize="24sp"/>
 
     <com.htxtdshopping.htxtd.frame.widget.UnreadMsgView
         android:id="@+id/messages"

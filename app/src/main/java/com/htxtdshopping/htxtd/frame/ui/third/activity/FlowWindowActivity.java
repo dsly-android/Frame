@@ -35,11 +35,11 @@ public class FlowWindowActivity extends BaseFitsWindowActivity {
 
     }
 
-    @OnClick({R.id.btn_show_float,R.id.btn_hide_float})
+    @OnClick({R.id.btn_show_float, R.id.btn_hide_float})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_show_float:
-                if (FloatWindow.get() != null && !FloatWindow.get().isShowing()){
+                if (FloatWindow.get() == null) {
                     ImageView iv = new ImageView(this);
                     iv.setImageResource(R.drawable.umeng_socialize_wxcircle);
                     FloatWindow
@@ -53,12 +53,14 @@ public class FlowWindowActivity extends BaseFitsWindowActivity {
                             .setMoveStyle(500, new BounceInterpolator())
                             .setDesktopShow(true)
                             .build();
+                }
+                if (!FloatWindow.get().isShowing()){
                     FloatWindow.get().show();
                 }
                 break;
             case R.id.btn_hide_float:
-                if (FloatWindow.get() != null){
-                    FloatWindow.get().hide();
+                if (FloatWindow.get() != null) {
+                    FloatWindow.get().destory();
                 }
                 break;
             default:

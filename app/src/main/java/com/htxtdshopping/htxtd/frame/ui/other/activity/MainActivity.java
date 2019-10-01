@@ -25,7 +25,6 @@ import java.util.List;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import butterknife.BindView;
-import me.jessyan.autosize.utils.AutoSizeUtils;
 
 /**
  * @author chenzhipeng
@@ -111,8 +110,8 @@ public class MainActivity extends BaseActivity {
         itemView.initialize(drawable, checkedDrawable, text);
         itemView.setTextDefaultColor(Color.BLACK);
         itemView.setTextCheckedColor(getResources().getColor(R.color._81D8CF));
-        itemView.setTextSize(AutoSizeUtils.pt2px(this, 24));
-        itemView.setUnreadMsgTextSize(AutoSizeUtils.pt2px(this, 18));
+        itemView.setTextSize(24);
+        itemView.setUnreadMsgTextSize(18);
         return itemView;
     }
 

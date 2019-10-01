@@ -257,7 +257,7 @@ public class MaterialItemView extends BaseTabItem {
      * @param textSize
      */
     public void setTextSize(int textSize) {
-        mLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+        mLabel.setTextSize(textSize);
     }
 
     /**
