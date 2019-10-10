@@ -26,24 +26,28 @@
                 android:id="@+id/btn_refresh_and_load_more"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="24sp"
                 android:text="下拉刷新，上拉加载"/>
 
             <Button
                 android:id="@+id/btn_permission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="24sp"
                 android:text="6.0权限"/>
 
             <Button
                 android:id="@+id/btn_scanQrCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="24sp"
                 android:text="扫描二维码"/>
 
             <Button
                 android:id="@+id/btn_generateQrCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="24sp"
                 android:text="生成二维码"/>
 
             <Button
@@ -51,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="banner"/>
 
             <Button
@@ -58,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="Rxjava的使用"/>
 
             <Button
@@ -65,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="objectbox"/>
 
             <Button
@@ -72,6 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="autosize"/>
         </LinearLayout>
     </ScrollView>

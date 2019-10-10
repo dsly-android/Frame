@@ -120,7 +120,7 @@ public class MainActivity extends BaseActivity {
      */
     private BaseTabItem newRoundItem(int drawable, int checkedDrawable) {
         SpecialTabRoundItemView itemView = new SpecialTabRoundItemView(this);
-        itemView.initialize(drawable, checkedDrawable, "");
+        itemView.initialize(drawable, checkedDrawable,"");
         return itemView;
     }
 

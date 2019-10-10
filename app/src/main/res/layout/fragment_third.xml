@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="grid"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -32,12 +33,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="list"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/btn_record"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="24sp"
                 android:text="录音"/>
 
             <Button
@@ -45,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="PopupWindow"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -52,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="修改头像"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -59,6 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="通知"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -66,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="服务"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -73,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="登录页面"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -80,6 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="Material Design"/>
 
             <Button
@@ -87,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="版本更新"/>
 
             <Button
@@ -94,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="lifecycle"/>
 
             <Button
@@ -101,6 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="handler"/>
 
             <Button
@@ -108,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="悬浮窗"/>
         </LinearLayout>
     </ScrollView>

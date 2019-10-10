@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="tablayout"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -34,6 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CommonTextView"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -41,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="常用控件集合"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -48,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="时间、地址选择器"
+                android:textSize="24sp"
                 android:textAllCaps="false"/>
 
             <Button
@@ -55,13 +59,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
+                android:textSize="24sp"
                 android:text="联系人侧边栏快速导航"/>
 
             <Button
                 android:id="@+id/btn_choose_channel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="24sp"
                 android:text="仿今日头条频道选择"/>
+
+            <Button
+                android:id="@+id/btn_radarview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="雷达图"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
