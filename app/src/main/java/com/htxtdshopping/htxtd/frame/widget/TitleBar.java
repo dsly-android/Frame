@@ -114,4 +114,8 @@ public class TitleBar extends ConstraintLayout implements View.OnClickListener {
     public void setRightTextAlpha(float alpha){
         mTvRight.setAlpha(alpha);
     }
+
+    public void setRightImageResource(int resId){
+        mIvRight.setImageResource(resId);
+    }
 }

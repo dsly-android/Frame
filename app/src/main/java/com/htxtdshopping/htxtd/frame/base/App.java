@@ -31,6 +31,7 @@ import com.htxtdshopping.htxtd.frame.ui.second.activity.UpgradeActivity;
 import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.widget.refresh.NewsRefreshHeader;
 import com.liulishuo.okdownload.core.dispatcher.DownloadDispatcher;
+import com.lzf.easyfloat.EasyFloat;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshInitializer;
@@ -95,6 +96,8 @@ public class App extends DaggerApplication {
         initUShare();
         //okdownload
         initOkDownload();
+        //EasyFloat
+        initEasyFloat();
     }
 
     private void initRxHttp() {
@@ -345,5 +348,9 @@ public class App extends DaggerApplication {
 
     private void initOkDownload(){
         DownloadDispatcher.setMaxParallelRunningCount(3);
+    }
+
+    private void initEasyFloat(){
+        EasyFloat.init(this, BuildConfig.DEBUG);
     }
 }

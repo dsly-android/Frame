@@ -12,6 +12,7 @@ import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseLazyFragment;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.AutoSizeActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.BannerActivity;
+import com.htxtdshopping.htxtd.frame.ui.first.activity.FloatWindowActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.GenerateQrCodeActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.ObjectBoxActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.PermissionActivity;
@@ -60,7 +61,7 @@ public class FirstFragment extends BaseLazyFragment<FirstPresenter> implements I
     }
 
     @OnClick({R.id.btn_refresh_and_load_more, R.id.btn_permission, R.id.btn_scanQrCode, R.id.btn_generateQrCode,
-            R.id.btn_banner, R.id.btn_rxjava,R.id.btn_objectbox,R.id.btn_autosize})
+            R.id.btn_banner, R.id.btn_rxjava,R.id.btn_objectbox,R.id.btn_autosize,R.id.btn_window})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_refresh_and_load_more:
@@ -86,6 +87,9 @@ public class FirstFragment extends BaseLazyFragment<FirstPresenter> implements I
                 break;
             case R.id.btn_autosize:
                 ActivityUtils.startActivity(AutoSizeActivity.class);
+                break;
+            case R.id.btn_window:
+                ActivityUtils.startActivity(FloatWindowActivity.class);
                 break;
             default:
                 break;
