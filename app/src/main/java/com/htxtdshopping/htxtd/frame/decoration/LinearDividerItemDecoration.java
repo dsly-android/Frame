@@ -56,7 +56,7 @@ public class LinearDividerItemDecoration extends RecyclerView.ItemDecoration {
 
         int childCount = parent.getChildCount();
 
-        for (int i = 0; i < childCount; ++i) {
+        for (int i = 0; i < childCount - 1; ++i) {
             View child = parent.getChildAt(i);
             parent.getDecoratedBoundsWithMargins(child, this.mBounds);
             int bottom = this.mBounds.bottom + Math.round(child.getTranslationY());
@@ -82,7 +82,7 @@ public class LinearDividerItemDecoration extends RecyclerView.ItemDecoration {
 
         int childCount = parent.getChildCount();
 
-        for (int i = 0; i < childCount; ++i) {
+        for (int i = 0; i < childCount - 1; ++i) {
             View child = parent.getChildAt(i);
             parent.getLayoutManager().getDecoratedBoundsWithMargins(child, this.mBounds);
             int right = this.mBounds.right + Math.round(child.getTranslationX());

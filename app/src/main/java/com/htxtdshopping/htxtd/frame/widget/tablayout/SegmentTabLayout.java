@@ -382,8 +382,8 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
             mIndicatorHeight = height - mIndicatorMarginTop - mIndicatorMarginBottom;
         }
 
-        if (mIndicatorCornerRadius < 0 || mIndicatorCornerRadius > mIndicatorHeight / 2) {
-            mIndicatorCornerRadius = mIndicatorHeight / 2;
+        if (mIndicatorCornerRadius < 0 || mIndicatorCornerRadius > height / 2) {
+            mIndicatorCornerRadius = height / 2;
         }
 
         //draw rect
@@ -415,7 +415,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
         }
 
         mIndicatorDrawable.setColors(new int[]{mIndicatorStartColor, mIndicatorEndColor});
-        mIndicatorDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+        mIndicatorDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
         mIndicatorDrawable.setBounds(paddingLeft + (int) mIndicatorMarginLeft + mIndicatorRect.left,
                 (int) mIndicatorMarginTop, (int) (paddingLeft + mIndicatorRect.right - mIndicatorMarginRight),
                 (int) (mIndicatorMarginTop + mIndicatorHeight));

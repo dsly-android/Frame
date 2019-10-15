@@ -186,7 +186,7 @@ dependencies {
     debugImplementation "io.objectbox:objectbox-android-objectbrowser:2.3.4"
     releaseImplementation "io.objectbox:objectbox-android:2.3.4"
 
-    //EasyFloat
-    implementation 'com.github.princekin-f:EasyFloat:1.1.1'
+    //easyfloat
+    implementation project(path: ':easyfloat')
 }
 apply plugin: 'io.objectbox'

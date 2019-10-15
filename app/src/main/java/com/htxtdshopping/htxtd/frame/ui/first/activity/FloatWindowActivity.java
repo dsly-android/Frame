@@ -36,7 +36,7 @@ public class FloatWindowActivity extends BaseFitsWindowActivity {
 
     }
 
-    @OnClick({R.id.btn_start_float,R.id.btn_show_float, R.id.btn_hide_float,R.id.btn_cancel_float})
+    @OnClick({R.id.btn_start_float, R.id.btn_show_float, R.id.btn_hide_float, R.id.btn_cancel_float})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_start_float:
@@ -80,7 +80,7 @@ public class FloatWindowActivity extends BaseFitsWindowActivity {
         }
     }
 
-    private void showAppFloat(){
+    private void showAppFloat() {
         EasyFloat.with(this)
                 .setLayout(R.layout.float_test)
                 .setShowPattern(ShowPattern.ALL_TIME)
