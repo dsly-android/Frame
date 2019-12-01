@@ -315,7 +315,7 @@ public class App extends DaggerApplication {
             @Override
             public void onViewInitFinished(boolean arg0) {
                 //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
-                LogUtils.i( " onViewInitFinished is " + arg0);
+                LogUtils.i(" onViewInitFinished is " + arg0);
             }
 
             @Override
@@ -333,7 +333,7 @@ public class App extends DaggerApplication {
     }
 
     private void initUShare() {
-        UMConfigure.init(this, "5c3ca500f1f556c482000950", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, null);
     }
 
     {
@@ -346,11 +346,11 @@ public class App extends DaggerApplication {
         return DaggerAppComponent.builder().build();
     }
 
-    private void initOkDownload(){
+    private void initOkDownload() {
         DownloadDispatcher.setMaxParallelRunningCount(3);
     }
 
-    private void initEasyFloat(){
+    private void initEasyFloat() {
         EasyFloat.init(this, BuildConfig.DEBUG);
     }
 }

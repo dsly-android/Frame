@@ -2,7 +2,9 @@ package com.htxtdshopping.htxtd.frame;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import io.reactivex.Observable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +14,13 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        Observable.empty()
+                .subscribeOn(Schedulers.computation())
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(Object o) throws Exception {
+                        System.out.println(Thread.currentThread().getName()+"");
+                    }
+                });
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -98,9 +99,16 @@ public class ClearEditText extends FrameLayout {
         if (closeDrawable != null) {
             mIvClose.setImageDrawable(closeDrawable);
         }
+        if (!TextUtils.isEmpty(textStr) && textStr.length() > 0) {
+            mIvClose.setVisibility(VISIBLE);
+        } else {
+            mIvClose.setVisibility(GONE);
+        }
         mEtInput.setHint(hintTextStr);
         mEtInput.setText(textStr);
-        mEtInput.setSelection(textStr.length());
+        if (!TextUtils.isEmpty(textStr)){
+            mEtInput.setSelection(textStr.length());
+        }
         mEtInput.setTextColor(textColor);
         mEtInput.setHintTextColor(hintTextColor);
         mEtInput.setTextSize(TypedValue.COMPLEX_UNIT_PT, textSize);

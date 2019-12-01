@@ -14,7 +14,7 @@
             android:id="@+id/iv_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/icon_people"
+            tools:src="@drawable/icon_people"
             android:visibility="gone"/>
 
         <EditText
@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@null"
-            android:hint="foimvefoimverfoimvfoimvefoimverfoimverfoimverfoimverrerfoimverfoimverr"
+            tools:hint="foimvefoimverfoimvfoimvefoimverfoimverfoimverfoimverrerfoimverfoimverr"
             android:singleLine="true"
             android:textColor="@color/_353535"
             android:textColorHint="@color/_999999"

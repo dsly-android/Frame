@@ -11,6 +11,8 @@ import com.htxtdshopping.htxtd.frame.ui.four.activity.ChooseChannelActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.CommonTextViewActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.CommonViewActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.ContactNavigationActivity;
+import com.htxtdshopping.htxtd.frame.ui.four.activity.DialogActivity;
+import com.htxtdshopping.htxtd.frame.ui.four.activity.DoodleViewActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.RadarViewActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.TabHomeActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.TimeOrAddressPickerActivity;
@@ -47,7 +49,8 @@ public class FourFragment extends BaseLazyFragment {
     }
 
     @OnClick({R.id.btn_tab, R.id.btn_common_tv, R.id.btn_common, R.id.btn_time_or_date_picker,
-            R.id.btn_contact_navigation, R.id.btn_choose_channel,R.id.btn_radarview})
+            R.id.btn_contact_navigation, R.id.btn_choose_channel, R.id.btn_radarview, R.id.btn_dialog,
+            R.id.btn_sketchpad})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_tab:
@@ -70,6 +73,12 @@ public class FourFragment extends BaseLazyFragment {
                 break;
             case R.id.btn_radarview:
                 ActivityUtils.startActivity(RadarViewActivity.class);
+                break;
+            case R.id.btn_dialog:
+                ActivityUtils.startActivity(DialogActivity.class);
+                break;
+            case R.id.btn_sketchpad:
+                ActivityUtils.startActivity(DoodleViewActivity.class);
                 break;
             default:
                 break;

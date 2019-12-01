@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
@@ -33,7 +32,6 @@ public class LoginAndShareActivity extends BaseFitsWindowActivity {
     TextView mTvMsg;
     private UMShareListener mShareListener;
     private ShareAction mShareAction;
-    private UMShareListener mUiShareListener;
 
     @Override
     public int getLayoutId() {
@@ -67,27 +65,7 @@ public class LoginAndShareActivity extends BaseFitsWindowActivity {
 
     @Override
     public void initEvent() {
-        mShareListener = new UMShareListener() {
-            @Override
-            public void onStart(SHARE_MEDIA share_media) {
 
-            }
-
-            @Override
-            public void onResult(SHARE_MEDIA share_media) {
-                ToastUtils.showLong("成功了");
-            }
-
-            @Override
-            public void onError(SHARE_MEDIA share_media, Throwable throwable) {
-                ToastUtils.showLong("失败了");
-            }
-
-            @Override
-            public void onCancel(SHARE_MEDIA share_media) {
-                ToastUtils.showLong("取消了");
-            }
-        };
     }
 
     @Override
@@ -102,14 +80,20 @@ public class LoginAndShareActivity extends BaseFitsWindowActivity {
                 mShareAction.open();
                 break;
             case R.id.btn_wechat_login:
-                boolean isauth = UMShareAPI.get(this).isAuthorize(this, SHARE_MEDIA.WEIXIN);
-                if (isauth) {
+                if (!UMShareAPI.get(this).isInstall(this, SHARE_MEDIA.WEIXIN)) {
+                    return;
+                }
+                boolean isAuth = UMShareAPI.get(this).isAuthorize(this, SHARE_MEDIA.WEIXIN);
+                if (isAuth) {
                     UMShareAPI.get(this).deleteOauth(this, SHARE_MEDIA.WEIXIN, authListener);
                 } else {
                     UMShareAPI.get(this).doOauthVerify(this, SHARE_MEDIA.WEIXIN, authListener);
                 }
                 break;
             case R.id.btn_share_no_ui:
+                if (!UMShareAPI.get(this).isInstall(this, SHARE_MEDIA.WEIXIN_CIRCLE)) {
+                    return;
+                }
                 UMWeb web = new UMWeb("https://www.baidu.com");
                 web.setTitle("This is web title");
                 web.setThumb(new UMImage(this, "网络图片地址"));
@@ -165,18 +149,17 @@ public class LoginAndShareActivity extends BaseFitsWindowActivity {
 
         @Override
         public void onResult(SHARE_MEDIA platform) {
-            Toast.makeText(mActivity.get(), platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
+            ToastUtils.showLong("分享成功啦");
         }
 
         @Override
         public void onError(SHARE_MEDIA platform, Throwable t) {
-            Toast.makeText(mActivity.get(), platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
+            ToastUtils.showLong("分享失败啦");
         }
 
         @Override
         public void onCancel(SHARE_MEDIA platform) {
-
-            Toast.makeText(mActivity.get(), platform + " 分享取消了", Toast.LENGTH_SHORT).show();
+            ToastUtils.showLong("分享取消了");
         }
     }
 

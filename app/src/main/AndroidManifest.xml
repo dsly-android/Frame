@@ -3,17 +3,12 @@
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- 8.0安装apk需要的权限 -->
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-    <!-- 录音 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <!-- 9.0前台服务必须要后的权限 -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <!-- 显示系统Window必须添加的权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- 8.0安装apk需要的权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/> <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/> <!-- 9.0前台服务必须要后的权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/> <!-- 显示系统Window必须添加的权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
-    <!-- zxing -->
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/> <!-- zxing -->
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
@@ -71,6 +66,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="icon,theme,label,allowBackup">
+
+        <service android:name=".service.WebSocketService"/>
+
+        <activity
+            android:name=".ui.first.activity.WebSocketActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.four.activity.DoodleViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.four.activity.DialogActivity"
+            android:screenOrientation="portrait"/>
+
         <service android:name="com.lzf.easyfloat.service.FloatService"/>
 
         <activity
@@ -198,6 +206,8 @@
             android:screenOrientation="portrait"/>
 
         <service android:name=".service.LocalService"/>
+        <service android:name=".service.BindService"/>
+        <service android:name=".service.MyIntentService"/>
 
         <activity
             android:name=".ui.four.activity.TimeOrAddressPickerActivity"
@@ -236,14 +246,16 @@
         <activity
             android:name=".ui.third.activity.UpgradeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.AppCompat.Dialog"/>
-
+            android:theme="@style/AppTheme.AppCompat.Dialog"/> <!-- autosize -->
         <meta-data
             android:name="design_width_in_dp"
             android:value="720"/>
         <meta-data
             android:name="design_height_in_dp"
-            android:value="1280"/>
+            android:value="1280"/> <!-- 友盟 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5c3ca500f1f556c482000950"/>
     </application>
 
 </manifest>

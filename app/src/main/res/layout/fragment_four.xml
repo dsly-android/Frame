@@ -27,54 +27,70 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="tablayout"
-                android:textSize="24sp"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:textSize="24sp"/>
 
             <Button
                 android:id="@+id/btn_common_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CommonTextView"
-                android:textSize="24sp"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:textSize="24sp"/>
 
             <Button
                 android:id="@+id/btn_common"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="常用控件集合"
-                android:textSize="24sp"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:textSize="24sp"/>
 
             <Button
                 android:id="@+id/btn_time_or_date_picker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="时间、地址选择器"
-                android:textSize="24sp"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:textSize="24sp"/>
 
             <Button
                 android:id="@+id/btn_contact_navigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="联系人侧边栏快速导航"
                 android:textAllCaps="false"
-                android:textSize="24sp"
-                android:text="联系人侧边栏快速导航"/>
+                android:textSize="24sp"/>
 
             <Button
                 android:id="@+id/btn_choose_channel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="仿今日头条频道选择"/>
+                android:text="仿今日头条频道选择"
+                android:textSize="24sp"/>
 
             <Button
                 android:id="@+id/btn_radarview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="雷达图"/>
+                android:text="雷达图"
+                android:textSize="24sp"/>
+
+            <Button
+                android:id="@+id/btn_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="dialog"
+                android:textAllCaps="false"
+                android:textSize="24sp"/>
+
+            <Button
+                android:id="@+id/btn_sketchpad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="画板"
+                android:textAllCaps="false"
+                android:textSize="24sp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

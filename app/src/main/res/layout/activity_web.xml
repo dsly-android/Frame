@@ -16,7 +16,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.htxtdshopping.htxtd.frame.widget.X5WebView
+    <com.htxtdshopping.htxtd.frame.widget.web.X5WebView
         android:id="@+id/wv_web"
         android:layout_width="match_parent"
         android:layout_height="0dp"

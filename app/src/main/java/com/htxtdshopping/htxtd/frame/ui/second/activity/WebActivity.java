@@ -1,22 +1,25 @@
 package com.htxtdshopping.htxtd.frame.ui.second.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.widget.X5WebView;
+import com.htxtdshopping.htxtd.frame.widget.web.X5WebView;
+import com.htxtdshopping.htxtd.frame.widget.web.X5WebViewClient;
 import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
-import com.tencent.smtt.sdk.WebViewClient;
 
 import butterknife.BindView;
+import me.jessyan.autosize.AutoSize;
 
 import static android.view.View.GONE;
 
@@ -35,6 +38,13 @@ public class WebActivity extends BaseFitsWindowActivity {
      */
     private ValueCallback<Uri> uploadFile;
     private ValueCallback<Uri[]> uploadFiles;
+
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
+        //解决首次进入有webview的页面时适配失效的问题
+        AutoSize.autoConvertDensityOfGlobal(this);
+        return super.onCreateView(name, context, attrs);
+    }
 
     @Override
     public int getLayoutId() {
@@ -97,7 +107,7 @@ public class WebActivity extends BaseFitsWindowActivity {
                 return true;
             }
         });
-        mWvWeb.setWebViewClient(new WebViewClient(){
+        mWvWeb.setWebViewClient(new X5WebViewClient(){
             @Override
             public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
                 super.onPageStarted(webView, s, bitmap);
