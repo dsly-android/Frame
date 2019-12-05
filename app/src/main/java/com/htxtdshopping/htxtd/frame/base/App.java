@@ -253,9 +253,9 @@ public class App extends DaggerApplication {
                     Intent intent = new Intent(getApplicationContext(), UpgradeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                } else {
+                }/* else {
                     ToastUtils.showLong("你已经是最新版了");
-                }
+                }*/
             }
         };
         Beta.upgradeStateListener = new UpgradeStateListener() {
@@ -271,7 +271,7 @@ public class App extends DaggerApplication {
 
             @Override
             public void onUpgradeNoVersion(boolean b) {
-                ToastUtils.showLong("你已经是最新版了");
+//                ToastUtils.showLong("你已经是最新版了");
             }
 
             @Override
@@ -283,7 +283,9 @@ public class App extends DaggerApplication {
 
             @Override
             public void onDownloadCompleted(boolean b) {
-                ToastUtils.showLong("下载完成");
+//                ToastUtils.showLong("下载完成");
+                //安装apk
+                AppUtils.installApp(Beta.getStrategyTask().getSaveFile());
             }
         };
 

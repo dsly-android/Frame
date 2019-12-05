@@ -43,6 +43,8 @@ public class UpgradeActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        getWindow().setBackgroundDrawableResource(R.drawable.bg_white_corner20);
+
         BarUtils.setStatusBarVisibility(this, false);
 
         /*获取策略信息，初始化界面信息*/

@@ -4,9 +4,11 @@ package com.htxtdshopping.htxtd.frame.ui.center.fragment;
 import android.os.Bundle;
 import android.view.View;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.BaseLazyFragment;
+import com.htxtdshopping.htxtd.frame.ui.center.activity.LinearActivity;
 
 import androidx.fragment.app.Fragment;
 import butterknife.BindView;
@@ -41,11 +43,11 @@ public class CenterFragment extends BaseLazyFragment {
 
     }
 
-    @OnClick({R.id.btn_test})
+    @OnClick({R.id.btn_linear})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.btn_test:
-
+            case R.id.btn_linear:
+                ActivityUtils.startActivity(LinearActivity.class);
                 break;
             default:
                 break;

@@ -22,12 +22,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_test"
+            <Button
+                android:id="@+id/btn_linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="button"/>
+                android:text="LinearLayoutManager反转布局"
+                android:textAllCaps="false"
+                android:textSize="24sp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

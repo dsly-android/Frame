@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.util.Log;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ThreadUtils;
@@ -17,6 +16,7 @@ import org.java_websocket.handshake.ServerHandshake;
 import org.simple.eventbus.EventBus;
 import org.simple.eventbus.Subscriber;
 
+import java.lang.ref.WeakReference;
 import java.net.URI;
 
 import androidx.annotation.Nullable;
@@ -37,18 +37,27 @@ public class WebSocketService extends Service {
 
     public WebSocketService() {
         EventBus.getDefault().register(this);
-        mHandler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                Log.e("JWebSocketClientService", "心跳包检测websocket连接状态");
-                if (mClient != null && mClient.isClosed()) {
-                    reconnectWs();
-                }
-                //每隔一定的时间，对长连接进行一次心跳检测
-                mHandler.sendEmptyMessageDelayed(WHAT_HEART_BEAT, HEART_BEAT_RATE);
+        mHandler = new WebSocketHandler(this);
+    }
+
+    public static class WebSocketHandler extends Handler {
+
+        private WeakReference<WebSocketService> mService;
+
+        public WebSocketHandler(WebSocketService service) {
+            mService = new WeakReference<>(service);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            WebSocketClient client = mService.get().getClient();
+            if (client.isClosed()) {
+                mService.get().reconnectWs();
             }
-        };
+            //每隔一定的时间，对长连接进行一次心跳检测
+            sendEmptyMessageDelayed(WHAT_HEART_BEAT, HEART_BEAT_RATE);
+        }
     }
 
     @Override
@@ -76,7 +85,7 @@ public class WebSocketService extends Service {
      * 初始化websocket连接
      */
     private void initSocketClient() {
-        URI uri = URI.create("ws://192.168.0.167:8088/ws");
+        URI uri = URI.create("ws://192.168.0.168:8088/ws");
         mClient = new WebSocketClient(uri) {
 
             @Override
@@ -147,6 +156,7 @@ public class WebSocketService extends Service {
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+        mHandler.removeMessages(WHAT_HEART_BEAT);
         closeConnect();
     }
 
@@ -163,6 +173,10 @@ public class WebSocketService extends Service {
         } finally {
             mClient = null;
         }
+    }
+
+    public WebSocketClient getClient() {
+        return mClient;
     }
 
     @Nullable

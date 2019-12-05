@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-
 import com.htxtdshopping.htxtd.frame.R;
 
 import androidx.annotation.NonNull;
@@ -106,7 +105,7 @@ public class ClearEditText extends FrameLayout {
         }
         mEtInput.setHint(hintTextStr);
         mEtInput.setText(textStr);
-        if (!TextUtils.isEmpty(textStr)){
+        if (!TextUtils.isEmpty(textStr)) {
             mEtInput.setSelection(textStr.length());
         }
         mEtInput.setTextColor(textColor);
@@ -143,5 +142,20 @@ public class ClearEditText extends FrameLayout {
                 mEtInput.getText().clear();
             }
         });
+    }
+
+    /**
+     * 获取输入的字符串
+     * @return
+     */
+    public String getTextStr(){
+        return mEtInput.getText().toString();
+    }
+
+    /**
+     * 清空输入的内容
+     */
+    public void clear(){
+        mEtInput.getText().clear();
     }
 }

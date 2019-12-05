@@ -182,6 +182,7 @@ public class OssService {
      */
     public String generateUrl(String key) {
         // http://bucket.<endpoint>/object
+//        String path = oss.presignPublicObjectURL(Constants.OSS_BUCKET, key);
         return "http://" + Constants.OSS_BUCKET + "." + Constants.OSS_ENDPOINT.substring(7) + "/" + key;
     }
 
