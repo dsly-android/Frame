@@ -3,9 +3,9 @@ package com.htxtdshopping.htxtd.frame.viewholder;
 import android.content.Context;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseViewHolder;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseViewHolder;
 import com.htxtdshopping.htxtd.frame.utils.GlideUtils;
 
 /**

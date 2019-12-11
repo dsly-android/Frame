@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 
+import com.android.dsly.common.base.BaseService;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ThreadUtils;
 import com.htxtdshopping.htxtd.frame.event.SocketReceiveEvent;
@@ -25,7 +26,7 @@ import androidx.annotation.Nullable;
  * @author 陈志鹏
  * @date 2019-11-29
  */
-public class WebSocketService extends Service {
+public class WebSocketService extends BaseService {
 
     //每隔10秒进行一次对长连接的心跳检测
     private static final long HEART_BEAT_RATE = 10 * 1000;
@@ -35,8 +36,9 @@ public class WebSocketService extends Service {
     private WebSocketClient mClient;
     private Handler mHandler;
 
-    public WebSocketService() {
-        EventBus.getDefault().register(this);
+    @Override
+    public void onCreate() {
+        super.onCreate();
         mHandler = new WebSocketHandler(this);
     }
 
@@ -155,7 +157,6 @@ public class WebSocketService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
         mHandler.removeMessages(WHAT_HEART_BEAT);
         closeConnect();
     }

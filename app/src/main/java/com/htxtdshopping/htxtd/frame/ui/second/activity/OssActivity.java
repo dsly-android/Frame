@@ -8,9 +8,9 @@ import com.alibaba.sdk.android.oss.ServiceException;
 import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
+import com.android.dsly.common.base.BaseActivity;
 import com.blankj.utilcode.util.FileUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.network.OssService;
 
 import java.util.ArrayList;

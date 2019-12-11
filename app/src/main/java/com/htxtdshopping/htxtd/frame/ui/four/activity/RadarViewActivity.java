@@ -3,9 +3,9 @@ package com.htxtdshopping.htxtd.frame.ui.four.activity;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.widget.radarview.RadarData;
 import com.htxtdshopping.htxtd.frame.widget.radarview.RadarView;
 

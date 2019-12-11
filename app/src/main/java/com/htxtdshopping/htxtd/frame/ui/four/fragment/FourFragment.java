@@ -3,10 +3,10 @@ package com.htxtdshopping.htxtd.frame.ui.four.fragment;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseLazyFragment;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseLazyFragment;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.ChooseChannelActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.CommonTextViewActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.activity.CommonViewActivity;

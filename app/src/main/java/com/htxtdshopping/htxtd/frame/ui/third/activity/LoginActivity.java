@@ -9,11 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.blankj.utilcode.util.RegexUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;

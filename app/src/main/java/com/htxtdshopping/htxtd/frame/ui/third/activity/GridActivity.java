@@ -3,12 +3,12 @@ package com.htxtdshopping.htxtd.frame.ui.third.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.decoration.GridDividerItemDecoration;
+import com.android.dsly.common.utils.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.decoration.GridDividerItemDecoration;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.GridAdapter;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;

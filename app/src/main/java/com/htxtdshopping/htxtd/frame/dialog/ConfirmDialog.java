@@ -3,8 +3,8 @@ package com.htxtdshopping.htxtd.frame.dialog;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.android.dsly.common.base.BaseDialog;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseDialog;
 
 import androidx.annotation.NonNull;
 

@@ -7,4 +7,9 @@ ext {
             versionCode             : 1,
             versionName             : "1.0.0"
     ]
+
+    dependencies = [
+            //text
+            "androidJUnitRunner"       : "androidx.test.runner.AndroidJUnitRunner"
+    ]
 }

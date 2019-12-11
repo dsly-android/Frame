@@ -3,11 +3,11 @@ package com.htxtdshopping.htxtd.frame.ui.first.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.bean.NewsPictureBean;
 import com.htxtdshopping.htxtd.frame.bean.NewsTextBean;
 import com.htxtdshopping.htxtd.frame.bean.NewsVideoBean;

@@ -4,11 +4,12 @@ import android.Manifest;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseLazyFragment;
+import com.android.dsly.common.utils.ToastUtils;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.AppContext;
-import com.htxtdshopping.htxtd.frame.base.BaseLazyFragment;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.ChangeAvatarActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.GridActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.HandlerActivity;
@@ -20,7 +21,6 @@ import com.htxtdshopping.htxtd.frame.ui.third.activity.NotificationActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.PopupWindowActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.ServiceActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.activity.VoiceRecordActivity;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 

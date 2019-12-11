@@ -3,21 +3,21 @@ package com.htxtdshopping.htxtd.frame.ui.other.activity;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.android.dsly.common.base.BaseActivity;
+import com.android.dsly.common.widget.pagerbottomtabstrip.NavigationController;
+import com.android.dsly.common.widget.pagerbottomtabstrip.PageNavigationView;
+import com.android.dsly.common.widget.pagerbottomtabstrip.item.BaseTabItem;
+import com.android.dsly.common.widget.pagerbottomtabstrip.item.SpecialTabItemView;
+import com.android.dsly.common.widget.pagerbottomtabstrip.item.SpecialTabRoundItemView;
+import com.android.dsly.common.widget.pagerbottomtabstrip.listener.SimpleTabItemSelectedListener;
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.FragmentUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.center.fragment.CenterFragment;
 import com.htxtdshopping.htxtd.frame.ui.first.fragment.FirstFragment;
 import com.htxtdshopping.htxtd.frame.ui.four.fragment.FourFragment;
 import com.htxtdshopping.htxtd.frame.ui.second.fragment.SecondFragment;
 import com.htxtdshopping.htxtd.frame.ui.third.fragment.ThirdFragment;
-import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.NavigationController;
-import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.PageNavigationView;
-import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.item.BaseTabItem;
-import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.item.SpecialTabItemView;
-import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.item.SpecialTabRoundItemView;
-import com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.listener.SimpleTabItemSelectedListener;
 
 import java.util.ArrayList;
 import java.util.List;

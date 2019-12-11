@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="96pt"/>
 
-    <com.htxtdshopping.htxtd.frame.widget.pagerbottomtabstrip.PageNavigationView
+    <com.android.dsly.common.widget.pagerbottomtabstrip.PageNavigationView
         android:id="@+id/pnv_tab"
         android:layout_width="match_parent"
         android:layout_height="138pt"

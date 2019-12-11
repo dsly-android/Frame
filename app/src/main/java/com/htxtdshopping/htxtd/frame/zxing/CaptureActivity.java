@@ -14,12 +14,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.google.zxing.Result;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.zxing.camera.CameraConfigurationManager;
 import com.htxtdshopping.htxtd.frame.zxing.camera.CameraManager;
 

@@ -8,23 +8,23 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.constant.Constants;
+import com.android.dsly.common.decoration.GridDividerItemDecoration;
+import com.android.dsly.common.utils.ToastUtils;
+import com.android.dsly.common.widget.TitleBar;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.SDCardUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.constant.Constants;
-import com.htxtdshopping.htxtd.frame.decoration.GridDividerItemDecoration;
 import com.htxtdshopping.htxtd.frame.popup.ImageFolderPopupWindow;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.ImagePickerAdapter;
 import com.htxtdshopping.htxtd.frame.utils.IntentUtils;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.utils.local_data.CameraItem;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageDataUtils;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageFolder;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageItem;
-import com.htxtdshopping.htxtd.frame.widget.TitleBar;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 

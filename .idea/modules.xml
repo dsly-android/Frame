@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/autosize/autosize.iml" filepath="$PROJECT_DIR$/autosize/autosize.iml" />
       <module fileurl="file://$PROJECT_DIR$/banner/banner.iml" filepath="$PROJECT_DIR$/banner/banner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/easyfloat/easyfloat.iml" filepath="$PROJECT_DIR$/easyfloat/easyfloat.iml" />
     </modules>
   </component>

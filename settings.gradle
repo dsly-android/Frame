@@ -1,1 +1,1 @@
-include ':app', ':banner', ':autosize', ':easyfloat'
+include ':app', ':banner', ':autosize', ':easyfloat', ':common'

@@ -5,8 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.fragment.SimpleCardFragment;
 import com.htxtdshopping.htxtd.frame.widget.tablayout.SlidingTabLayout;
 import com.htxtdshopping.htxtd.frame.widget.tablayout.listener.OnTabSelectListener;

@@ -3,10 +3,10 @@ package com.htxtdshopping.htxtd.frame.ui.center.activity;
 import android.os.Bundle;
 import android.os.SystemClock;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.blankj.utilcode.util.ThreadUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.ui.center.adapter.LinearAdapter;
 import com.htxtdshopping.htxtd.frame.widget.ChatLoadMoreView;
 

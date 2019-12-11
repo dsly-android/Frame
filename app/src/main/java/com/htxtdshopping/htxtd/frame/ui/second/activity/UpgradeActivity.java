@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.beta.download.DownloadListener;
 import com.tencent.bugly.beta.download.DownloadTask;

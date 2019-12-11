@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context=".ui.four.activity.CommonTextViewActivity">
 
-    <com.htxtdshopping.htxtd.frame.widget.CommonTextView
+    <com.android.dsly.common.widget.CommonTextView
         android:id="@+id/ctv_test1"
         android:layout_width="match_parent"
         android:layout_height="90pt"

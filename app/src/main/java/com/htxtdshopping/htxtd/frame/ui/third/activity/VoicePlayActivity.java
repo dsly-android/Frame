@@ -3,10 +3,10 @@ package com.htxtdshopping.htxtd.frame.ui.third.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.blankj.utilcode.util.FileUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.RecordAdapter;
 import com.htxtdshopping.htxtd.frame.utils.VoicePlayManager;
 import com.htxtdshopping.htxtd.frame.utils.VoiceRecordManager;

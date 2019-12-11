@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.alibaba.fastjson.JSON;
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.decoration.PinnedHeaderDecoration;
+import com.android.dsly.common.utils.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.bean.ContactBean;
-import com.htxtdshopping.htxtd.frame.decoration.PinnedHeaderDecoration;
 import com.htxtdshopping.htxtd.frame.ui.four.adapter.ContactNavigationAdapter;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.widget.WaveSideBarView;
 
 import java.util.Collections;

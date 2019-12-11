@@ -1,9 +1,9 @@
 package com.htxtdshopping.htxtd.frame.ui.first.presenter;
 
+import com.android.dsly.common.base.BasePresenter;
 import com.android.dsly.rxhttp.observer.CommonObserver;
 import com.android.dsly.rxhttp.utils.RxLifecycleUtils;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.htxtdshopping.htxtd.frame.base.BasePresenter;
 import com.htxtdshopping.htxtd.frame.bean.NewsPictureBean;
 import com.htxtdshopping.htxtd.frame.bean.NewsTextBean;
 import com.htxtdshopping.htxtd.frame.bean.NewsVideoBean;

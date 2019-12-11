@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.blankj.utilcode.util.LogUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.service.BindService;
 import com.htxtdshopping.htxtd.frame.service.LocalService;
 import com.htxtdshopping.htxtd.frame.service.MyIntentService;

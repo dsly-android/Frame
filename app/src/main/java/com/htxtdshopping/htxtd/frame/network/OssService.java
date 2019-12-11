@@ -12,10 +12,10 @@ import com.alibaba.sdk.android.oss.model.GetObjectRequest;
 import com.alibaba.sdk.android.oss.model.GetObjectResult;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
+import com.android.dsly.common.constant.Constants;
+import com.android.dsly.common.constant.UserSputilsKey;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.SPUtils;
-import com.htxtdshopping.htxtd.frame.constant.Constants;
-import com.htxtdshopping.htxtd.frame.constant.UserSputilsKey;
 
 import java.io.File;
 import java.util.ArrayList;

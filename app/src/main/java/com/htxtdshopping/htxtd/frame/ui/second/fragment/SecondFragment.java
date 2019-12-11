@@ -3,10 +3,10 @@ package com.htxtdshopping.htxtd.frame.ui.second.fragment;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseLazyFragment;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseLazyFragment;
 import com.htxtdshopping.htxtd.frame.ui.second.activity.LoginAndShareActivity;
 import com.htxtdshopping.htxtd.frame.ui.second.activity.OssActivity;
 import com.htxtdshopping.htxtd.frame.ui.second.activity.WebActivity;

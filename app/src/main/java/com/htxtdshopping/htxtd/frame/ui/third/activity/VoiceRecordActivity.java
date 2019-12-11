@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseActivity;
+import com.android.dsly.common.utils.ToastUtils;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.utils.VoiceRecordManager;
 import com.htxtdshopping.htxtd.frame.widget.VoiceLineView;
 import com.tbruyelle.rxpermissions2.Permission;

@@ -4,8 +4,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.lzf.easyfloat.EasyFloat;
 import com.lzf.easyfloat.enums.ShowPattern;
 import com.lzf.easyfloat.enums.SidePattern;

@@ -2,9 +2,9 @@ package com.htxtdshopping.htxtd.frame.ui.four.activity;
 
 import android.os.Bundle;
 
+import com.android.dsly.common.base.BaseActivity;
+import com.android.dsly.common.widget.CommonTextView;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
-import com.htxtdshopping.htxtd.frame.widget.CommonTextView;
 
 import butterknife.BindView;
 

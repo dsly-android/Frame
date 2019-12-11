@@ -9,9 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.AppContext;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.db.Customer;
 import com.htxtdshopping.htxtd.frame.db.Order;
 import com.htxtdshopping.htxtd.frame.db.Order_;

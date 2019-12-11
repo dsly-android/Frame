@@ -1,10 +1,10 @@
 package com.htxtdshopping.htxtd.frame.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
+import com.android.dsly.common.base.BaseService;
 import com.blankj.utilcode.util.LogUtils;
 
 import androidx.annotation.Nullable;
@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
  * @author 陈志鹏
  * @date 2019-11-19
  */
-public class BindService extends Service {
+public class BindService extends BaseService {
 
     @Override
     public void onCreate() {

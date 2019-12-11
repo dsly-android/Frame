@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;

@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.adapter.SimpleHomeAdapter;
 
 import butterknife.BindView;

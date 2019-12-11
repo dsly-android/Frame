@@ -5,9 +5,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.base.BasePopupWindow;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.base.BasePopupWindow;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import butterknife.BindView;

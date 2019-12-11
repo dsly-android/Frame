@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.android.dsly.rxhttp.observer.CommonObserver;
 import com.blankj.utilcode.util.LogUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.network.ServerApi;
 
 import java.util.concurrent.TimeUnit;

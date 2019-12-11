@@ -3,8 +3,8 @@ package com.htxtdshopping.htxtd.frame.ui.third.activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 
 import butterknife.BindView;
 

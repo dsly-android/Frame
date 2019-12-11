@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.blankj.utilcode.util.LogUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 
 import java.lang.ref.WeakReference;
 

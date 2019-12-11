@@ -3,10 +3,10 @@ package com.htxtdshopping.htxtd.frame.ui.third.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;

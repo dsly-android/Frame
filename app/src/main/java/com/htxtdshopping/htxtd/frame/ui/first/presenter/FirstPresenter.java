@@ -1,6 +1,6 @@
 package com.htxtdshopping.htxtd.frame.ui.first.presenter;
 
-import com.htxtdshopping.htxtd.frame.base.BasePresenter;
+import com.android.dsly.common.base.BasePresenter;
 import com.htxtdshopping.htxtd.frame.ui.first.view.IFirstView;
 
 import javax.inject.Inject;

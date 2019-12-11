@@ -8,13 +8,13 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseActivity;
+import com.android.dsly.common.utils.ToastUtils;
+import com.android.dsly.common.widget.TitleBar;
 import com.blankj.utilcode.util.BarUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.ImagePageAdapter;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageItem;
-import com.htxtdshopping.htxtd.frame.widget.TitleBar;
 import com.htxtdshopping.htxtd.frame.widget.ZoomViewPager;
 
 import java.util.ArrayList;

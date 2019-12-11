@@ -1,8 +1,8 @@
 package com.htxtdshopping.htxtd.frame.di.component;
 
+import com.android.dsly.common.di.module.BaseModule;
 import com.htxtdshopping.htxtd.frame.base.App;
 import com.htxtdshopping.htxtd.frame.di.module.AppModule;
-import com.htxtdshopping.htxtd.frame.di.module.BuildersModule;
 
 import javax.inject.Singleton;
 
@@ -11,7 +11,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
-@Component(modules = {AndroidSupportInjectionModule.class, AppModule.class, BuildersModule.class})
+@Component(modules = {AndroidSupportInjectionModule.class, BaseModule.class, AppModule.class})
 public interface AppComponent extends AndroidInjector<App> {
 
 }

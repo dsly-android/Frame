@@ -10,10 +10,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.widget.web.X5WebView;
+import com.android.dsly.common.widget.web.X5WebViewClient;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.widget.web.X5WebView;
-import com.htxtdshopping.htxtd.frame.widget.web.X5WebViewClient;
 import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;

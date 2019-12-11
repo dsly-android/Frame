@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 
 import butterknife.BindView;
 import me.jessyan.autosize.AutoSizeConfig;

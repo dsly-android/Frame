@@ -51,7 +51,7 @@
         app:layout_constraintBottom_toBottomOf="@id/sb_test1"
         app:layout_constraintLeft_toRightOf="@id/sb_test1"/>
 
-    <com.htxtdshopping.htxtd.frame.widget.MsgNumView
+    <com.android.dsly.common.widget.MsgNumView
         android:id="@+id/mnv_unread_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sb_test1"/>
 
-    <com.htxtdshopping.htxtd.frame.widget.GradientTextView
+    <com.android.dsly.common.widget.GradientTextView
         android:id="@+id/gtv_label1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_shadow"
         app:startColor="@color/_DBB292"/>
 
-    <com.htxtdshopping.htxtd.frame.widget.ClearEditText
+    <com.android.dsly.common.widget.ClearEditText
         android:id="@+id/cet_label1"
         android:layout_width="match_parent"
         android:layout_height="90pt"

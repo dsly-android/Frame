@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.widget.IndicatorView;
 import com.htxtdshopping.htxtd.frame.widget.ShadowDrawable;
 import com.htxtdshopping.htxtd.frame.widget.SwitchButton;

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 
+import com.android.dsly.common.base.BaseService;
 import com.blankj.utilcode.util.LogUtils;
 import com.htxtdshopping.htxtd.frame.notification.Notifications;
 
@@ -14,7 +15,7 @@ import androidx.annotation.Nullable;
  * @author 陈志鹏
  * @date 2018/12/25
  */
-public class LocalService extends Service {
+public class LocalService extends BaseService {
 
     @Override
     public void onCreate() {

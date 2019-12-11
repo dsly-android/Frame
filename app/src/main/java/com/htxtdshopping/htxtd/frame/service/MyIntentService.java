@@ -1,10 +1,10 @@
 package com.htxtdshopping.htxtd.frame.service;
 
-import android.app.IntentService;
 import android.content.Intent;
 import android.os.Build;
 import android.os.SystemClock;
 
+import com.android.dsly.common.base.BaseIntentService;
 import com.blankj.utilcode.util.LogUtils;
 import com.htxtdshopping.htxtd.frame.notification.Notifications;
 
@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
  * @author 陈志鹏
  * @date 2019-11-19
  */
-public class MyIntentService extends IntentService {
+public class MyIntentService extends BaseIntentService {
 
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.

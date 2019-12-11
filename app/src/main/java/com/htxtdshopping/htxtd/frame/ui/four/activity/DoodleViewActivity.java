@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.widget.TitleBar;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.widget.TitleBar;
 import com.htxtdshopping.htxtd.frame.widget.doodleView.DoodleView;
 
 import androidx.appcompat.app.AlertDialog;

@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.decoration.LinearDividerItemDecoration;
+import com.android.dsly.common.widget.CustomizeLoadMoreView;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.widget.CustomizeLoadMoreView;
 import com.htxtdshopping.htxtd.frame.bean.NewsVideoBean;
-import com.htxtdshopping.htxtd.frame.decoration.LinearDividerItemDecoration;
 import com.htxtdshopping.htxtd.frame.ui.first.adapter.RefreshAndLoadMoreAdapter;
 import com.htxtdshopping.htxtd.frame.ui.first.presenter.RefreshAndLoadMorePresenter;
 import com.htxtdshopping.htxtd.frame.ui.first.view.IRefreshAndLoadMoreView;

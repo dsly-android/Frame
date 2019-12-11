@@ -2,10 +2,10 @@ package com.htxtdshopping.htxtd.frame.ui.first.activity;
 
 import android.os.Bundle;
 
+import com.android.dsly.common.base.BaseActivity;
+import com.android.dsly.common.utils.ToastUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.loader.GlideImageLoader;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
 

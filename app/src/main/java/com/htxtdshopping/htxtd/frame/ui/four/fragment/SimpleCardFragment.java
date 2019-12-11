@@ -3,8 +3,8 @@ package com.htxtdshopping.htxtd.frame.ui.four.fragment;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BasePageLazyFragment;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BasePageLazyFragment;
 
 import butterknife.BindView;
 

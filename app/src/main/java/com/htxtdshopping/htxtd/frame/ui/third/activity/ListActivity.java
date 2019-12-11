@@ -2,9 +2,9 @@ package com.htxtdshopping.htxtd.frame.ui.third.activity;
 
 import android.os.Bundle;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.decoration.LinearDividerItemDecoration;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.decoration.LinearDividerItemDecoration;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.GridAdapter;
 
 import java.util.ArrayList;

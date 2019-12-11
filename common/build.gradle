@@ -1,0 +1,108 @@
+apply plugin: 'com.android.library'
+//module中使用butterknife
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner rootProject.ext.android["androidJUnitRunner"]
+    }
+
+    buildTypes {
+        debug {
+            //子module中通过这个自动寻找该module下我们指定的混淆文件对代码进行混淆，
+            // 是否进行混淆是通过主module的minifyEnabled决定的
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        release {
+            //子module中通过这个自动寻找该module下我们指定的混淆文件对代码进行混淆，
+            // 是否进行混淆是通过主module的minifyEnabled决定的
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    //给 Module 内的资源名增加前缀, 避免资源名冲突
+//    resourcePrefix "common_"
+}
+
+dependencies {
+    //implementation修饰的只能在当前module中引用,依赖module中改为api则主module中也可引用jar包
+    //annotationProcessor在每个module都必须要引用
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
+    testApi 'junit:junit:4.12'
+    androidTestApi 'androidx.test:runner:1.2.0'
+    androidTestApi 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //multidex
+    api 'androidx.multidex:multidex:2.0.1'
+
+    //design
+    api 'com.google.android.material:material:1.1.0-alpha02'
+
+    //rxhttp
+    api 'com.android.dsly:rxhttp:1.0.1'
+
+    //fastjson
+    api 'com.alibaba:fastjson:1.1.71.android'
+
+    //AndroidEventBus
+    api 'org.simple:androideventbus:1.0.5.1'
+
+    //butterknife
+    api 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+    //glide
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    //RxPermissions
+    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+    //lifecycle
+    api 'android.arch.lifecycle:common-java8:+'
+
+    //dagger
+    api 'com.google.dagger:dagger:2.24'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
+    api 'com.google.dagger:dagger-android:2.24'
+    api('com.google.dagger:dagger-android-support:2.24') {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
+
+    //leakcanary
+    debugApi 'com.squareup.leakcanary:leakcanary-android:2.0'
+
+    //AndroidAutoSize
+    api project(path: ':autosize')
+
+    //flexbox-layout
+    api 'com.google.android:flexbox:1.1.0'
+
+    //BaseRecyclerViewAdapterHelper
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.49-androidx'
+
+    //x5
+    api files('libs/tbs_sdk_thirdapp_v3.6.0.1371_43624_sharewithdownload_withoutGame_obfs_20181106_121046.jar')
+
+
+    //SmartRefreshLayout
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-15'
+    //没有使用特殊Header，可以不加这行
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-15'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+}

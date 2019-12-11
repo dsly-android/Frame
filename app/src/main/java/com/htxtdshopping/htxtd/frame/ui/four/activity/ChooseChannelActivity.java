@@ -3,11 +3,11 @@ package com.htxtdshopping.htxtd.frame.ui.four.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.bean.ChannelBean;
 import com.htxtdshopping.htxtd.frame.ui.four.adapter.ChooseChannelAdapter;
 import com.htxtdshopping.htxtd.frame.widget.adapter.MultiItemBean;

@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.android.dsly.common.base.BasePopupWindow;
+import com.android.dsly.common.decoration.ItemDecorationDrawable;
+import com.android.dsly.common.decoration.LinearDividerItemDecoration;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BasePopupWindow;
-import com.htxtdshopping.htxtd.frame.decoration.ItemDecorationDrawable;
-import com.htxtdshopping.htxtd.frame.decoration.LinearDividerItemDecoration;
 import com.htxtdshopping.htxtd.frame.ui.third.adapter.ImageFolderAdapter;
 import com.htxtdshopping.htxtd.frame.utils.local_data.ImageFolder;
 

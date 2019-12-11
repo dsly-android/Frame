@@ -7,12 +7,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.dsly.common.base.BaseActivity;
+import com.android.dsly.common.constant.Constants;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.htxtdshopping.htxtd.frame.R;
 import com.htxtdshopping.htxtd.frame.base.AppContext;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
-import com.htxtdshopping.htxtd.frame.constant.Constants;
 import com.liulishuo.okdownload.DownloadTask;
 import com.liulishuo.okdownload.StatusUtil;
 import com.liulishuo.okdownload.core.breakpoint.BreakpointInfo;

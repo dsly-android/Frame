@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.utils.QrCodeUtils;
 
 import butterknife.BindView;

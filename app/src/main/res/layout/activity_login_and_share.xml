@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".ui.second.activity.LoginAndShareActivity">
 
-    <com.htxtdshopping.htxtd.frame.widget.TitleBar
+    <com.android.dsly.common.widget.TitleBar
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_title_bar"
         app:tb_title="微信登录和分享"/>

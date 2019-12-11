@@ -4,8 +4,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseActivity;
 import com.htxtdshopping.htxtd.frame.ui.four.fragment.SimpleCardFragment;
 import com.htxtdshopping.htxtd.frame.widget.tablayout.CommonTabLayout;
 import com.htxtdshopping.htxtd.frame.widget.tablayout.listener.CustomTabEntity;

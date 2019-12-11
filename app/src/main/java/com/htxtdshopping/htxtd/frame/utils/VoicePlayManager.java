@@ -7,6 +7,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.SeekBar;
 
+import com.android.dsly.common.utils.ToastUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 

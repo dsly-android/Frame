@@ -6,6 +6,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
+import com.android.dsly.common.constant.Constants;
+import com.android.dsly.common.utils.ToastUtils;
+import com.android.dsly.common.widget.TitleBar;
 import com.blankj.utilcode.util.ImageUtils;
 import com.blankj.utilcode.util.SDCardUtils;
 import com.bumptech.glide.Glide;
@@ -14,10 +18,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
-import com.htxtdshopping.htxtd.frame.constant.Constants;
-import com.htxtdshopping.htxtd.frame.utils.ToastUtils;
-import com.htxtdshopping.htxtd.frame.widget.TitleBar;
 import com.htxtdshopping.htxtd.frame.widget.cropimage.CropImageLayout;
 
 import java.io.File;

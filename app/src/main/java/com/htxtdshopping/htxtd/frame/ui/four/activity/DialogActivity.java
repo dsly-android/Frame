@@ -3,8 +3,8 @@ package com.htxtdshopping.htxtd.frame.ui.four.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.base.BaseFitsWindowActivity;
 import com.htxtdshopping.htxtd.frame.dialog.ConfirmDialog;
 
 public class DialogActivity extends BaseFitsWindowActivity {
