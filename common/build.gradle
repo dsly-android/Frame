@@ -17,6 +17,12 @@ android {
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
         testInstrumentationRunner rootProject.ext.android["androidJUnitRunner"]
+        //ARouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -47,62 +53,68 @@ dependencies {
     androidTestApi 'androidx.test.espresso:espresso-core:3.2.0'
 
     //multidex
-    api 'androidx.multidex:multidex:2.0.1'
+    api rootProject.ext.dependencies["multidex"]
 
     //design
-    api 'com.google.android.material:material:1.1.0-alpha02'
+    api rootProject.ext.dependencies["design"]
+
+    //common_service
+    api project(path: ':common_service')
 
     //rxhttp
-    api 'com.android.dsly:rxhttp:1.0.1'
+    api rootProject.ext.dependencies["rxhttp"]
 
     //fastjson
-    api 'com.alibaba:fastjson:1.1.71.android'
+    api rootProject.ext.dependencies["fastjson"]
 
     //AndroidEventBus
-    api 'org.simple:androideventbus:1.0.5.1'
+    api rootProject.ext.dependencies["androideventbus"]
 
     //butterknife
-    api 'com.jakewharton:butterknife:10.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    api rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
     //glide
-    api 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    api rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
 
     //RxPermissions
-    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+    api rootProject.ext.dependencies["rxpermissions"]
 
     //lifecycle
-    api 'android.arch.lifecycle:common-java8:+'
+    api rootProject.ext.dependencies["lifecycle"]
 
     //dagger
-    api 'com.google.dagger:dagger:2.24'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
-    api 'com.google.dagger:dagger-android:2.24'
-    api('com.google.dagger:dagger-android-support:2.24') {
+    api rootProject.ext.dependencies["dagger"]
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+    api rootProject.ext.dependencies["dagger-android"]
+    api(rootProject.ext.dependencies["dagger-android-support"]) {
         exclude group: 'com.android.support'
     }
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
+    annotationProcessor rootProject.ext.dependencies["dagger-android-processor"]
 
     //leakcanary
-    debugApi 'com.squareup.leakcanary:leakcanary-android:2.0'
+    debugApi rootProject.ext.dependencies["leakcanary"]
 
     //AndroidAutoSize
     api project(path: ':autosize')
 
     //flexbox-layout
-    api 'com.google.android:flexbox:1.1.0'
+    api rootProject.ext.dependencies["flexbox"]
 
     //BaseRecyclerViewAdapterHelper
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.49-androidx'
+    api rootProject.ext.dependencies["adapter"]
 
     //x5
     api files('libs/tbs_sdk_thirdapp_v3.6.0.1371_43624_sharewithdownload_withoutGame_obfs_20181106_121046.jar')
 
-
     //SmartRefreshLayout
-    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-15'
+    api rootProject.ext.dependencies["refresh"]
     //没有使用特殊Header，可以不加这行
-    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-15'
-    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    api rootProject.ext.dependencies["refresh-header"]
+    api rootProject.ext.dependencies["legacy"]
+
+    //ARouter
+    api rootProject.ext.dependencies["arouter"]
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 }

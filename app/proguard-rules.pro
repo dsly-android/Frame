@@ -30,6 +30,7 @@
 -keepclasseswithmembers class * extends android.app.Dialog{
     public <init>(android.content.Context);
 }
+-keep public class * implements com.android.dsly.common.core.ConfigModule
 
 #---------------------------------自定义View的类------------------------
 #在这下面写自定义View的类的类，没有就去掉这句话！
@@ -127,38 +128,8 @@
 -keep class me.jessyan.autosize.** { *; }
 -keep interface me.jessyan.autosize.** { *; }
 
-#zxing
--dontwarn com.google.zxing.**
--keep class com.google.zxing.** { *; }
-
 #flexbox-layout
 -keepnames public class com.google.android.flexbox.FlexboxLayoutManager
-
-#bugly
--dontwarn com.tencent.bugly.**
--keep public class com.tencent.bugly.**{*;}
--keep class android.support.**{*;}
-
-#oss
--keep class com.alibaba.sdk.android.oss.** { *; }
--dontwarn okio.**
--dontwarn org.apache.commons.codec.binary.**
-
-#Sophix
-#基线包使用，生成mapping.txt
--printmapping mapping.txt
-#生成的mapping.txt在app/build/outputs/mapping/release路径下，移动到/app路径下
-#修复后的项目使用，保证混淆结果一致
-#-applymapping mapping.txt
-#hotfix
--keep class com.taobao.sophix.**{*;}
--keep class com.ta.utdid2.device.**{*;}
--dontwarn com.alibaba.sdk.android.utils.**
-#防止inline
--dontoptimize
--keepclassmembers class com.htxtdshopping.htxtd.frame.base.App {
-    public <init>();
-}
 
 #x5内核
 -dontwarn dalvik.**
@@ -347,6 +318,42 @@
 }
 -keep class **JNI* {*;}
 
+#zxing
+-dontwarn com.google.zxing.**
+-keep class com.google.zxing.** { *; }
+
+
+
+
+
+
+
+#bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+-keep class android.support.**{*;}
+
+#oss
+-keep class com.alibaba.sdk.android.oss.** { *; }
+-dontwarn okio.**
+-dontwarn org.apache.commons.codec.binary.**
+
+#Sophix
+#基线包使用，生成mapping.txt
+-printmapping mapping.txt
+#生成的mapping.txt在app/build/outputs/mapping/release路径下，移动到/app路径下
+#修复后的项目使用，保证混淆结果一致
+#-applymapping mapping.txt
+#hotfix
+-keep class com.taobao.sophix.**{*;}
+-keep class com.ta.utdid2.device.**{*;}
+-dontwarn com.alibaba.sdk.android.utils.**
+#防止inline
+-dontoptimize
+-keepclassmembers class com.htxtdshopping.htxtd.frame.base.App {
+    public <init>();
+}
+
 #UShare
 -dontshrink
 -dontoptimize
@@ -386,6 +393,22 @@
 
 #EasyFloat
 -keep class com.lzf.easyfloat.** {*;}
+
+
+
+
+
+
+
+
+#ARouter
+-keep public class com.alibaba.android.arouter.routes.**{*;}
+-keep public class com.alibaba.android.arouter.facade.**{*;}
+-keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
+# 如果使用了 byType 的方式获取 Service，需添加下面规则，保护接口
+-keep interface * implements com.alibaba.android.arouter.facade.template.IProvider
+# 如果使用了 单类注入，即不定义接口实现 IProvider，需添加下面规则，保护实现
+# -keep class * implements com.alibaba.android.arouter.facade.template.IProvider
 
 #-------------------------------------------基本不用动区域--------------------------------------------
 #---------------------------------基本指令区----------------------------------

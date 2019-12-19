@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 
 import com.android.dsly.common.base.BaseViewHolder;
+import com.android.dsly.common.utils.GlideUtils;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.utils.GlideUtils;
 
 /**
  * @author 陈志鹏
@@ -22,7 +22,7 @@ public class ChangeAvatarViewHolder extends BaseViewHolder<String> {
     public void convert(Context context, String data) {
         super.convert(context, data);
         if (ObjectUtils.isEmpty(data)) {
-            setImageResource(R.id.iv_img, R.drawable.image_add_sel);
+            setImageResource(R.id.iv_img, R.drawable.img_add_sel);
         } else {
             GlideUtils.loadImage(context, data, getView(R.id.iv_img));
         }

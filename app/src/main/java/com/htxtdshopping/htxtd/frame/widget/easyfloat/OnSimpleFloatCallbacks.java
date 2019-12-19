@@ -5,8 +5,8 @@ import android.view.View;
 
 import com.lzf.easyfloat.interfaces.OnFloatCallbacks;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * @author 陈志鹏
@@ -24,27 +24,27 @@ public class OnSimpleFloatCallbacks implements OnFloatCallbacks {
     }
 
     @Override
-    public void drag(@NotNull View view, @NotNull MotionEvent motionEvent) {
+    public void drag(@NonNull View view, @NonNull MotionEvent motionEvent) {
 
     }
 
     @Override
-    public void dragEnd(@NotNull View view) {
+    public void dragEnd(@NonNull View view) {
 
     }
 
     @Override
-    public void hide(@NotNull View view) {
+    public void hide(@NonNull View view) {
 
     }
 
     @Override
-    public void show(@NotNull View view) {
+    public void show(@NonNull View view) {
 
     }
 
     @Override
-    public void touchEvent(@NotNull View view, @NotNull MotionEvent motionEvent) {
+    public void touchEvent(@NonNull View view, @NonNull MotionEvent motionEvent) {
 
     }
 }

@@ -66,7 +66,7 @@ public class ObjectBoxActivity extends BaseFitsWindowActivity {
 
     @Override
     public void initEvent() {
-
+        
     }
 
     @Override

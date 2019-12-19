@@ -4,8 +4,6 @@ import android.app.Service;
 
 import org.simple.eventbus.EventBus;
 
-import leakcanary.AppWatcher;
-
 /**
  * @author 陈志鹏
  * @date 2019-12-07
@@ -15,7 +13,6 @@ public abstract class BaseService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        AppWatcher.INSTANCE.getObjectWatcher().watch(this);
         EventBus.getDefault().register(this);
     }
 

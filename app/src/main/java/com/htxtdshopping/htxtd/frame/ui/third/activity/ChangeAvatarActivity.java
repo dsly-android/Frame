@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.android.dsly.common.decoration.GridDividerItemDecoration;
 import com.android.dsly.common.utils.ToastUtils;
+import com.android.dsly.image_picker.activity.ImagePickerActivity;
 import com.blankj.utilcode.util.ImageUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.htxtdshopping.htxtd.frame.R;

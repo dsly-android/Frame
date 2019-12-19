@@ -6,7 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.alibaba.android.arouter.core.LogisticsCenter;
+import com.alibaba.android.arouter.facade.Postcard;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.android.dsly.common.base.BaseLazyFragment;
+import com.android.dsly.common.constant.RouterHub;
 import com.android.dsly.common.utils.ToastUtils;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.BarUtils;
@@ -22,7 +26,6 @@ import com.htxtdshopping.htxtd.frame.ui.first.activity.RxjavaActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.activity.WebSocketActivity;
 import com.htxtdshopping.htxtd.frame.ui.first.presenter.FirstPresenter;
 import com.htxtdshopping.htxtd.frame.ui.first.view.IFirstView;
-import com.htxtdshopping.htxtd.frame.zxing.CaptureActivity;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -37,7 +40,7 @@ import io.reactivex.functions.Consumer;
  */
 public class FirstFragment extends BaseLazyFragment<FirstPresenter> implements IFirstView {
 
-    private static final int CODE_SCAN_QR = 1;
+    public static final int CODE_SCAN_QR = 1;
     @BindView(R.id.v_bar)
     View mVBar;
 
@@ -62,7 +65,7 @@ public class FirstFragment extends BaseLazyFragment<FirstPresenter> implements I
     }
 
     @OnClick({R.id.btn_refresh_and_load_more, R.id.btn_permission, R.id.btn_scanQrCode, R.id.btn_generateQrCode,
-            R.id.btn_banner, R.id.btn_rxjava,R.id.btn_objectbox,R.id.btn_autosize,R.id.btn_window,R.id.btn_websocket})
+            R.id.btn_banner, R.id.btn_rxjava, R.id.btn_objectbox, R.id.btn_autosize, R.id.btn_window, R.id.btn_websocket})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_refresh_and_load_more:
@@ -112,7 +115,10 @@ public class FirstFragment extends BaseLazyFragment<FirstPresenter> implements I
                     @Override
                     public void accept(Permission permission) throws Exception {
                         if (permission.granted) {
-                            Intent intent = new Intent(getContext(), CaptureActivity.class);
+                            Postcard postcard = ARouter.getInstance().build(RouterHub.ZXING_CAPTURE_ACTIVITY);
+                            LogisticsCenter.completion(postcard);
+                            Intent intent = new Intent(getActivity(), postcard.getDestination());
+                            intent.putExtras(postcard.getExtras());
                             startActivityForResult(intent, CODE_SCAN_QR);
                         } else if (permission.shouldShowRequestPermissionRationale) {
                             ToastUtils.showLong("shouldShowRequestPermissionRationale");
@@ -130,8 +136,8 @@ public class FirstFragment extends BaseLazyFragment<FirstPresenter> implements I
             return;
         }
         switch (requestCode) {
-            case CODE_SCAN_QR:
-                String scanResult = data.getStringExtra(CaptureActivity.RESULT_KEY_SCAN_RESULT);
+            case FirstFragment.CODE_SCAN_QR:
+                String scanResult = data.getStringExtra(RouterHub.ZXING_RESULT_KEY_SCAN_RESULT);
                 ToastUtils.showLong(scanResult);
                 break;
             default:

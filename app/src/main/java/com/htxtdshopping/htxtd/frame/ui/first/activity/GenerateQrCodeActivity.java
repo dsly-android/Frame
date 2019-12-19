@@ -1,14 +1,17 @@
 package com.htxtdshopping.htxtd.frame.ui.first.activity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.android.dsly.common.base.BaseFitsWindowActivity;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.htxtdshopping.htxtd.frame.R;
-import com.htxtdshopping.htxtd.frame.utils.QrCodeUtils;
+import com.mrd.common_service.service.GenerateCodeService;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -22,6 +25,8 @@ public class GenerateQrCodeActivity extends BaseFitsWindowActivity {
     EditText mEtCode;
     @BindView(R.id.iv_img)
     ImageView mIvImg;
+    @Autowired
+    GenerateCodeService mGenerateCodeService;
 
     @Override
     public int getLayoutId() {
@@ -29,7 +34,9 @@ public class GenerateQrCodeActivity extends BaseFitsWindowActivity {
     }
 
     @Override
-    public void initView(Bundle savedInstanceState) {}
+    public void initView(Bundle savedInstanceState) {
+        ARouter.getInstance().inject(this);
+    }
 
     @Override
     public void initEvent() {
@@ -49,8 +56,8 @@ public class GenerateQrCodeActivity extends BaseFitsWindowActivity {
                 if (ObjectUtils.isEmpty(code)) {
                     return;
                 }
-                QrCodeUtils.builder(code).into(mIvImg);
-//                BarCodeUtils.builder(code).into(mIvImg);
+                Bitmap bitmap = mGenerateCodeService.generateBarCode(code);
+                mIvImg.setImageBitmap(bitmap);
                 break;
             default:
                 break;

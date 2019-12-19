@@ -45,7 +45,7 @@ public final class ManifestParser {
         return modules;
     }
 
-    private static ConfigModule parseModule(String className) {
+    private ConfigModule parseModule(String className) {
         Class<?> clazz;
         try {
             clazz = Class.forName(className);

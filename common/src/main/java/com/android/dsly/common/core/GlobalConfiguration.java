@@ -4,8 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.util.Log;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.android.dsly.common.BuildConfig;
 import com.android.dsly.common.notification.NotificationChannels;
-import com.android.dsly.rxhttp.BuildConfig;
 import com.android.dsly.rxhttp.RxHttp;
 import com.android.dsly.rxhttp.cache.CacheEntity;
 import com.android.dsly.rxhttp.cache.CacheMode;
@@ -25,6 +26,7 @@ import java.util.logging.Level;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
+import androidx.multidex.MultiDex;
 import me.jessyan.autosize.AutoSize;
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.unit.Subunits;
@@ -44,7 +46,8 @@ public class GlobalConfiguration implements ConfigModule {
         lifecycles.add(new AppLifecycles() {
             @Override
             public void attachBaseContext(@NonNull Application app) {
-
+                //      如果需要使用MultiDex，需要在此处调用。
+                MultiDex.install(app);
             }
 
             @Override
@@ -65,6 +68,8 @@ public class GlobalConfiguration implements ConfigModule {
                 initX5(app);
                 //初始化通知渠道
                 initNotificationChannels(app);
+                //ARouter
+                initARouter(app);
             }
 
             @Override
@@ -82,6 +87,14 @@ public class GlobalConfiguration implements ConfigModule {
     @Override
     public void injectFragmentLifecycle(Application application, List<FragmentManager.FragmentLifecycleCallbacks> lifecycles) {
 
+    }
+
+    private void initARouter(Application app){
+        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(app); // 尽可能早，推荐在Application中初始化
     }
 
     private void initRxHttp(Application application) {

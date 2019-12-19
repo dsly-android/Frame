@@ -11,7 +11,6 @@ import com.taobao.sophix.SophixManager;
 import com.taobao.sophix.listener.PatchLoadStatusListener;
 
 import androidx.annotation.Keep;
-import androidx.multidex.MultiDex;
 
 /**
  * @author 陈志鹏
@@ -27,8 +26,6 @@ public class SophixStubApplication extends SophixApplication {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-//      如果需要使用MultiDex，需要在此处调用。
-        MultiDex.install(this);
         initSophix();
     }
 

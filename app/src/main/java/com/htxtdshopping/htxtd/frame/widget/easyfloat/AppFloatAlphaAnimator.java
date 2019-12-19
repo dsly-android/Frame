@@ -8,8 +8,8 @@ import android.view.WindowManager;
 import com.lzf.easyfloat.enums.SidePattern;
 import com.lzf.easyfloat.interfaces.OnAppFloatAnimator;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * AppFloat透明动画
@@ -20,7 +20,7 @@ public class AppFloatAlphaAnimator implements OnAppFloatAnimator {
 
     @Nullable
     @Override
-    public Animator enterAnim(@NotNull View view, @NotNull WindowManager.LayoutParams params, @NotNull WindowManager windowManager, @NotNull SidePattern sidePattern) {
+    public Animator enterAnim(@NonNull View view, @NonNull WindowManager.LayoutParams params, @NonNull WindowManager windowManager, @NonNull SidePattern sidePattern) {
         ValueAnimator animator = ValueAnimator.ofFloat(0, 1).setDuration(200);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -34,7 +34,7 @@ public class AppFloatAlphaAnimator implements OnAppFloatAnimator {
 
     @Nullable
     @Override
-    public Animator exitAnim(@NotNull View view, @NotNull WindowManager.LayoutParams params, @NotNull WindowManager windowManager, @NotNull SidePattern sidePattern) {
+    public Animator exitAnim(@NonNull View view, @NonNull WindowManager.LayoutParams params, @NonNull WindowManager windowManager, @NonNull SidePattern sidePattern) {
         ValueAnimator animator = ValueAnimator.ofFloat(1, 0).setDuration(200);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

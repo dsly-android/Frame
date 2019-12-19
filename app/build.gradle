@@ -33,21 +33,21 @@ android {
         }
         //方法数超过65536时要加这行
         multiDexEnabled true
-        //objectbox
+        //ARouter，objectbox
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = ['objectbox.debug': 'false']
+                arguments = [AROUTER_MODULE_NAME: project.getName(), 'objectbox.debug': 'false']
             }
         }
     }
     buildTypes {
-        release {
+        debug {
             minifyEnabled true    //混淆
             shrinkResources true  //资源文件压缩
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.frame
         }
-        debug {
+        release {
             minifyEnabled true    //混淆
             shrinkResources true  //资源文件压缩
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -93,32 +93,36 @@ dependencies {
     implementation project(path: ':common')
 
     //dagger
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+    annotationProcessor rootProject.ext.dependencies["dagger-android-processor"]
 
     //glide
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
 
     //butterknife
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+
+    //arouter
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+
+    if (!isBuildModule.toBoolean()) {
+        //在宿主 App 中使用 implementation 依赖业务组件, 业务组件的代码就会完全暴露给宿主 App, 不利于代码的隔离
+        //使用 runtimeOnly 依赖业务组件, 可实现业务组件的代码在编译时对宿主 App 不可见, 仅在运行时对宿主 App 可见
+        runtimeOnly project(":zxing")
+    }
+
+    //image_picker
+    implementation project(path: ':image_picker')
+
+    //banner
+    implementation project(path: ':banner')
 
     //bugly
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
 
-    //banner
-    implementation project(path: ':banner')
-
     //Sophix
     implementation 'com.aliyun.ams:alicloud-android-hotfix:3.2.8'
-
-
-
-
-
-    //zxing
-    implementation 'com.google.zxing:core:3.3.0'
-    implementation 'com.google.zxing:android-core:3.3.0'
 
     //oss
     implementation 'com.aliyun.dpa:oss-android-sdk:+'

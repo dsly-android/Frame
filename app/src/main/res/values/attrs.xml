@@ -74,11 +74,6 @@
             <enum name="circle" value="1"/>
         </attr>
     </declare-styleable>
-    <declare-styleable name="CropImageLayout">
-        <attr name="horizontalPadding" format="dimension"/>
-        <attr name="borderColor" format="color"/>
-        <attr name="borderWidth" format="dimension"/>
-    </declare-styleable>
     <declare-styleable name="WheelView">
         <attr name="wv_gravity">
             <enum name="center" value="17"/>
