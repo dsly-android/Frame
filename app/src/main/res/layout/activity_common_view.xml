@@ -112,7 +112,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gtv_label1"/>
 
-    <com.htxtdshopping.htxtd.frame.widget.LoadingView
+    <com.android.dsly.common.widget.LoadingView
         android:layout_width="80pt"
         android:layout_height="80pt"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -7,7 +7,7 @@
     android:background="@drawable/bg_loading"
     android:padding="40pt">
 
-    <com.htxtdshopping.htxtd.frame.widget.LoadingView
+    <com.android.dsly.common.widget.LoadingView
         android:id="@+id/lv_label"
         android:layout_width="80pt"
         android:layout_height="80pt"

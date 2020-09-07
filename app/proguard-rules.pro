@@ -322,12 +322,6 @@
 -dontwarn com.google.zxing.**
 -keep class com.google.zxing.** { *; }
 
-
-
-
-
-
-
 #bugly
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
@@ -393,13 +387,6 @@
 
 #EasyFloat
 -keep class com.lzf.easyfloat.** {*;}
-
-
-
-
-
-
-
 
 #ARouter
 -keep public class com.alibaba.android.arouter.routes.**{*;}
